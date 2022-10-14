@@ -1,7 +1,12 @@
 spring:
+  application:
+    name: myongsikMain
+  config:
+    import:
+      - classpath:application-secret.yml
   datasource:
-    url: jdbc:h2:tcp://localhost/~/myongsik
-    username: sa
+    url: ENC(4etnnfXhOTY+xONvZJ+jHF9tf2ANDIMN7F9+aAlBahfnhllFKLnmdSLiTqEV0O1h)
+    username: ENC(QeLUduVvsIAxsBb+5/fwFA==)
     password:
     driver-class-name: org.h2.Driver
 
@@ -15,3 +20,19 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+
+
+jasypt:
+  encryptor:
+    bean: jasyptEncyptor
+
+#---
+## 현재 프로파일이 prod인 경우, 해당 프로퍼티들을 사용
+#spring.config.activate.on-profile: prod
+#security.jwt.token.secret-key: "prodKey"
+#
+#---
+## 현재 프로파일이 test인 경우, 해당 프로퍼티들을 사용
+#spring.config.activate.on-profile: test
+#security.jwt.token.secret-key: "testKey"
