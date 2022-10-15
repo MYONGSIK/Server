@@ -5,14 +5,14 @@ spring:
     import:
       - classpath:application-secret.yml
   datasource:
-    url: ENC(4etnnfXhOTY+xONvZJ+jHF9tf2ANDIMN7F9+aAlBahfnhllFKLnmdSLiTqEV0O1h)
-    username: ENC(QeLUduVvsIAxsBb+5/fwFA==)
-    password:
-    driver-class-name: org.h2.Driver
+    url: ENC(ZfiLdY+Vda1f8eqPQiy05mrqzRUnijR5tQFtC3wE2+rwLaDo11KxyGd9c5w2PhMiJld/YKQXx0DR7lS3IlN9tT+Tha5ShXPlJpLnthklWlgE3ReHXwRFunqSRdQ4uRS1nj53dGBY01A=)
+    username: ENC(CdMZ2QjBw5fGW+h2mqmJng==)
+    password: ENC(FVfRJV93aIBmq2ZzpHs6iH92Y4HP3Cux)
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
