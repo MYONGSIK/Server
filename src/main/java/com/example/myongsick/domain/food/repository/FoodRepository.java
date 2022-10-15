@@ -1,8 +1,15 @@
 package com.example.myongsick.domain.food.repository;
 
 import com.example.myongsick.domain.food.entity.Food;
+import com.example.myongsick.domain.food.entity.Week;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FoodRepository extends JpaRepository<Food,Long> {
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
+public interface FoodRepository extends JpaRepository<Food,Long> {
+    List<Food> findByWeek(Week week);
+
+    List<Food> findByToDay(LocalDate toDay);
 }

@@ -36,6 +36,9 @@ dependencies {
 //    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
 
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+
+
 
 }
 
