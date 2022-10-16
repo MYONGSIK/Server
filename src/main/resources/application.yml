@@ -1,9 +1,9 @@
 spring:
   application:
     name: myongsikMain
-  config:
-    import:
-      - classpath:application-secret.yml
+#  config:
+#    import:
+#      - classpath:application-secret.yml
   datasource:
     url: ENC(ZfiLdY+Vda1f8eqPQiy05mrqzRUnijR5tQFtC3wE2+rwLaDo11KxyGd9c5w2PhMiJld/YKQXx0DR7lS3IlN9tT+Tha5ShXPlJpLnthklWlgE3ReHXwRFunqSRdQ4uRS1nj53dGBY01A=)
     username: ENC(CdMZ2QjBw5fGW+h2mqmJng==)
@@ -26,6 +26,8 @@ spring:
 jasypt:
   encryptor:
     bean: jasyptEncyptor
+    encodingType: base64
+    algorithm: PBEWithMD5AndDES
 
 #---
 ## 현재 프로파일이 prod인 경우, 해당 프로퍼티들을 사용
@@ -36,3 +38,4 @@ jasypt:
 ## 현재 프로파일이 test인 경우, 해당 프로퍼티들을 사용
 #spring.config.activate.on-profile: test
 #security.jwt.token.secret-key: "testKey"
+
