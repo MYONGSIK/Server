@@ -33,7 +33,6 @@ jasypt:
 ## 현재 프로파일이 prod인 경우, 해당 프로퍼티들을 사용
 #spring.config.activate.on-profile: prod
 #security.jwt.token.secret-key: "prodKey"
-#
 #---
 ## 현재 프로파일이 test인 경우, 해당 프로퍼티들을 사용
 #spring.config.activate.on-profile: test
