@@ -27,9 +27,9 @@ public class FoodServiceImpl implements FoodService{
     private final WeekRepository weekRepository;
 
     @Override
-    public List<DaysFoodResponse> getWeekFoods() {
+    public List<WeekFoodResponse> getWeekFoods() {
         Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(LocalDate.now(), LocalDate.now()).get();
-        return DaysFoodResponse.toEntity(foodRepository.findByWeek(week));
+        return WeekFoodResponse.toEntity(foodRepository.findByWeekAndClassification(week, "중식"), foodRepository.findByWeekAndClassification(week, "석식"));
     }
 
     @Override

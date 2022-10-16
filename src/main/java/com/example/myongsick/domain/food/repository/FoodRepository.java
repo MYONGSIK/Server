@@ -14,4 +14,5 @@ public interface FoodRepository extends JpaRepository<Food,Long> {
     List<Food> findByToDay(LocalDate toDay);
 
     Optional<Food> findByToDayAndClassification(LocalDate toDay, String classification);
+    List<Food> findByWeekAndClassification(Week week, String classification);
 }
