@@ -42,31 +42,32 @@ public class WeekFoodResponse {
 
     public static List<WeekFoodResponse> toEntity(List<Food> lunch, List<Food> dinner) {
         List<WeekFoodResponse> weekFoodResponses = new ArrayList<>();
-        String dayOf = "";
-        switch (lunch.get(0).getToDay().getDayOfWeek()){
-            case SUNDAY:
-                dayOf="일요일";
-                break;
-            case MONDAY:
-                dayOf="월요일";
-                break;
-            case TUESDAY:
-                dayOf="화요일";
-                break;
-            case WEDNESDAY:
-                dayOf="수요일";
-                break;
-            case THURSDAY:
-                dayOf="목요일";
-                break;
-            case FRIDAY:
-                dayOf="금요일";
-                break;
-            case SATURDAY:
-                dayOf="토요일";
-                break;
-        }
+
         for(int i=0; i<5; i++){
+            String dayOf = "";
+            switch (lunch.get(i).getToDay().getDayOfWeek()){
+                case SUNDAY:
+                    dayOf="일요일";
+                    break;
+                case MONDAY:
+                    dayOf="월요일";
+                    break;
+                case TUESDAY:
+                    dayOf="화요일";
+                    break;
+                case WEDNESDAY:
+                    dayOf="수요일";
+                    break;
+                case THURSDAY:
+                    dayOf="목요일";
+                    break;
+                case FRIDAY:
+                    dayOf="금요일";
+                    break;
+                case SATURDAY:
+                    dayOf="토요일";
+                    break;
+            }
             weekFoodResponses.add(
                 WeekFoodResponse.builder()
                         .toDay(lunch.get(i).getToDay())
