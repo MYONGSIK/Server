@@ -1,6 +1,7 @@
 package com.example.myongsick.global.exception;
 
 import com.example.myongsick.global.object.ApiErrorResponse;
+import com.example.myongsick.global.object.ApplicationErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(ApplicationException.class)
-    public ResponseEntity<ApiErrorResponse> applicationException(ApplicationException e) {
+    public ApplicationErrorResponse<Void> applicationException(ApplicationException e) {
         String errorCode = e.getErrorCode();
 
         log.warn(
@@ -27,10 +28,7 @@ public class GlobalExceptionHandler {
                 errorCode,
                 e.getMessage()
         );
-        return ResponseEntity
-                .status(e.getHttpStatus())
-                .body(new ApiErrorResponse(errorCode, Arrays.asList(e.getMessage())));
-
+        return ApplicationErrorResponse.error(e);
     }
 
     @ExceptionHandler(RuntimeException.class)

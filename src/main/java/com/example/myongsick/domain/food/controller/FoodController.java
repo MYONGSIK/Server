@@ -1,6 +1,7 @@
 package com.example.myongsick.domain.food.controller;
 
 import com.example.myongsick.domain.food.dto.request.FoodAddRequest;
+import com.example.myongsick.domain.food.dto.request.MindFoodRequest;
 import com.example.myongsick.domain.food.dto.response.DaysFoodResponse;
 import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 import com.example.myongsick.domain.food.service.FoodService;
@@ -59,5 +60,13 @@ private final FoodService foodService;
     public ApplicationResponse<Void> addFoods(@RequestBody FoodAddRequest foodAddRequest){
         return ApplicationResponse.ok(foodService.addFoods(foodAddRequest));
     }
+
+    @PostMapping("/love")
+    @ApiOperation(value = "음식에 대해서 좋음, 싫음을 표시합니다.", notes = "mind = 'love', 'hate'를 표시 \n calculation은 'plus','minus'")
+    public ApplicationResponse<Void> mindFood(@RequestBody MindFoodRequest mindFoodRequest){
+        return ApplicationResponse.ok(foodService.mindFood(mindFoodRequest));
+    }
+
+
 
 }

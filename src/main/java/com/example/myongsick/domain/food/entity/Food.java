@@ -50,4 +50,20 @@ public class Food {
         this.love = 0L;
         this.week =  week;
     }
+
+    public void mindReflection(String mind, String calculation) {
+        if(mind.equals("love")){//좋아요
+            if(calculation.equals("plus")){//플러스
+                this.love++;
+            }else{//마이너스
+                this.love--;
+            }
+        }else{//싫어요
+            if(calculation.equals("plus")){//플러스
+                this.hate++;
+            }else{//마이너스
+                this.hate--;
+            }
+        }
+    }
 }

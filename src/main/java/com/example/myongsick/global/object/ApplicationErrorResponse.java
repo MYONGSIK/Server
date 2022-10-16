@@ -18,6 +18,7 @@ public class ApplicationErrorResponse<T>{
     private int httpCode;
     private String errorCode;
     private LocalDateTime localDateTime;
+    private String dayOfTheWeek;
     private HttpStatus httpStatus;
     private String message;
 
@@ -27,8 +28,37 @@ public class ApplicationErrorResponse<T>{
                 .httpCode(e.getHttpStatus().value())
                 .errorCode(e.getErrorCode())
                 .localDateTime(LocalDateTime.now())
+                .dayOfTheWeek(getDayOfTheWeek(LocalDateTime.now()))
                 .httpStatus(e.getHttpStatus())
                 .message(e.getMessage())
                 .build();
+    }
+
+    public static String getDayOfTheWeek(LocalDateTime localDateTime){
+        String dayOf = "";
+        switch (localDateTime.getDayOfWeek()){
+            case SUNDAY:
+                dayOf="일요일";
+                break;
+            case MONDAY:
+                dayOf="월요일";
+                break;
+            case TUESDAY:
+                dayOf="화요일";
+                break;
+            case WEDNESDAY:
+                dayOf="수요일";
+                break;
+            case THURSDAY:
+                dayOf="목요일";
+                break;
+            case FRIDAY:
+                dayOf="금요일";
+                break;
+            case SATURDAY:
+                dayOf="토요일";
+                break;
+        }
+        return dayOf;
     }
 }
