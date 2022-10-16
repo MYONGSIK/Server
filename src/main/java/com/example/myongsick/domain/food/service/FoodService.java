@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface FoodService {
 
-    List<DaysFoodResponse> getWeekFoods();
+    List<WeekFoodResponse> getWeekFoods();
 
     Void addWeek(String startDay, String endDay);
 
