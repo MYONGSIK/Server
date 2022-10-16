@@ -2,6 +2,7 @@ package com.example.myongsick.domain.food.service;
 
 
 import com.example.myongsick.domain.food.dto.request.FoodAddRequest;
+import com.example.myongsick.domain.food.dto.request.MindFoodRequest;
 import com.example.myongsick.domain.food.dto.response.DaysFoodResponse;
 import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 
@@ -16,4 +17,7 @@ public interface FoodService {
     Void addFoods(FoodAddRequest foodAddRequest);
 
     List<DaysFoodResponse> getDaysFoods();
+
+
+    Void mindFood(MindFoodRequest mindFoodRequest);
 }

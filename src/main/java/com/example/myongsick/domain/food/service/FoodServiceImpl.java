@@ -1,6 +1,7 @@
 package com.example.myongsick.domain.food.service;
 
 import com.example.myongsick.domain.food.dto.request.FoodAddRequest;
+import com.example.myongsick.domain.food.dto.request.MindFoodRequest;
 import com.example.myongsick.domain.food.dto.response.DaysFoodResponse;
 import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 import com.example.myongsick.domain.food.entity.Food;
@@ -74,6 +75,15 @@ public class FoodServiceImpl implements FoodService{
 
         return DaysFoodResponse.toEntity(foodRepository.findByToDay(LocalDate.now()));
     }
+
+    @Override
+    @Transactional
+    public Void mindFood(MindFoodRequest mindFoodRequest) {
+        Food food = foodRepository.findByToDayAndClassification(mindFoodRequest.getToDay(), mindFoodRequest.getClassification()).get();
+        food.mindReflection(mindFoodRequest.getMind(),mindFoodRequest.getCalculation());
+        return null;
+    }
+
 
 
 }

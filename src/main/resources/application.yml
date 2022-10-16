@@ -15,8 +15,8 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        show_sql: true
-        default_batch_fetch_size: 100
+#        show_sql: true
+        default_batch_fetch_size: 10
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

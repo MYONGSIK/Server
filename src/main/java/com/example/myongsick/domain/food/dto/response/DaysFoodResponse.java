@@ -29,6 +29,7 @@ public class DaysFoodResponse {
 
     public static List<DaysFoodResponse> toEntity(List<Food> foods){
         List<DaysFoodResponse> daysFoodResponseList = new ArrayList<>();
+
         for (Food food : foods) {
             String dayOf = "";
             switch (food.getToDay().getDayOfWeek()){
