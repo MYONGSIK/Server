@@ -1,6 +1,7 @@
 package com.example.myongsick.domain.food.dto.response;
 
 import com.example.myongsick.domain.food.entity.Food;
+import com.example.myongsick.global.util.DayOfTheWeek;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
 
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ApiModel(description = "주 단위 음식 조회")
+@ApiModel(description = "일 단위 음식 조회")
 public class DaysFoodResponse {
     private LocalDate toDay;
     private String dayOfTheWeek;
@@ -31,34 +32,10 @@ public class DaysFoodResponse {
         List<DaysFoodResponse> daysFoodResponseList = new ArrayList<>();
 
         for (Food food : foods) {
-            String dayOf = "";
-            switch (food.getToDay().getDayOfWeek()){
-                case SUNDAY:
-                    dayOf="일요일";
-                    break;
-                case MONDAY:
-                    dayOf="월요일";
-                    break;
-                case TUESDAY:
-                    dayOf="화요일";
-                    break;
-                case WEDNESDAY:
-                    dayOf="수요일";
-                    break;
-                case THURSDAY:
-                    dayOf="목요일";
-                    break;
-                case FRIDAY:
-                    dayOf="금요일";
-                    break;
-                case SATURDAY:
-                    dayOf="토요일";
-                    break;
-            }
             daysFoodResponseList.add(
                 DaysFoodResponse.builder()
                         .toDay(food.getToDay())
-                        .dayOfTheWeek(dayOf)
+                        .dayOfTheWeek(DayOfTheWeek.DayOfTheWeekConvert(food.getToDay()))
                         .classification(food.getClassification())
                         .status(food.getStatus())
                         .food1(food.getFood1())

@@ -1,6 +1,7 @@
 package com.example.myongsick.domain.food.dto.response;
 
 import com.example.myongsick.domain.food.entity.Food;
+import com.example.myongsick.global.util.DayOfTheWeek;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -44,35 +45,11 @@ public class WeekFoodResponse {
         List<WeekFoodResponse> weekFoodResponses = new ArrayList<>();
 
         for(int i=0; i<5; i++){
-            String dayOf = "";
-            switch (lunch.get(i).getToDay().getDayOfWeek()){
-                case SUNDAY:
-                    dayOf="일요일";
-                    break;
-                case MONDAY:
-                    dayOf="월요일";
-                    break;
-                case TUESDAY:
-                    dayOf="화요일";
-                    break;
-                case WEDNESDAY:
-                    dayOf="수요일";
-                    break;
-                case THURSDAY:
-                    dayOf="목요일";
-                    break;
-                case FRIDAY:
-                    dayOf="금요일";
-                    break;
-                case SATURDAY:
-                    dayOf="토요일";
-                    break;
-            }
             weekFoodResponses.add(
                 WeekFoodResponse.builder()
                         .toDay(lunch.get(i).getToDay())
                         .status(lunch.get(i).getStatus())
-                        .dayOfTheWeek(dayOf)
+                        .dayOfTheWeek(DayOfTheWeek.DayOfTheWeekConvert(lunch.get(i).getToDay()))
                         .lunch1(lunch.get(i).getFood1())
                         .lunch2(lunch.get(i).getFood2())
                         .lunch3(lunch.get(i).getFood3())
