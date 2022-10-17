@@ -1,27 +1,16 @@
 spring:
   application:
     name: myongsikMain
-#  config:
-#    import:
-#      - classpath:application-secret.yml
-  datasource:
-    url: ENC(ZfiLdY+Vda1f8eqPQiy05mrqzRUnijR5tQFtC3wE2+rwLaDo11KxyGd9c5w2PhMiJld/YKQXx0DR7lS3IlN9tT+Tha5ShXPlJpLnthklWlgE3ReHXwRFunqSRdQ4uRS1nj53dGBY01A=)
-    username: ENC(CdMZ2QjBw5fGW+h2mqmJng==)
-    password: ENC(FVfRJV93aIBmq2ZzpHs6iH92Y4HP3Cux)
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-#        show_sql: true
+        #        show_sql: true
         default_batch_fetch_size: 10
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
-
 
 jasypt:
   encryptor:
@@ -29,12 +18,15 @@ jasypt:
     encodingType: base64
     algorithm: PBEWithMD5AndDES
 
-#---
-## 현재 프로파일이 prod인 경우, 해당 프로퍼티들을 사용
-#spring.config.activate.on-profile: prod
-#security.jwt.token.secret-key: "prodKey"
-#---
-## 현재 프로파일이 test인 경우, 해당 프로퍼티들을 사용
-#spring.config.activate.on-profile: test
-#security.jwt.token.secret-key: "testKey"
-
+---
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles:
+    active: local
