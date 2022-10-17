@@ -6,4 +6,4 @@ COPY ${JAR_FILE} app.jar
 #ENTRYPOINT ["java", "-jar", "java ${JAVA_OPTS} -jar /app.jar"]
 #ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar"]
 ENV	USE_PROFILE prod
-ENTRYPOINT ["sh", "-c", "-Dspring.profiles.active=${USE_PROFILE}", "-Djava.security.egd=file:/dev/./urandom", "java ${JAVA_OPTS} -jar /app.jar"]
+ENTRYPOINT ["sh", "-c", "java"," -Dspring.profiles.active=${USE_PROFILE}", " ${JAVA_OPTS} -jar /app.jar"]
