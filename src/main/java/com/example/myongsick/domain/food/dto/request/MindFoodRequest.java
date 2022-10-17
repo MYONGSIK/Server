@@ -18,6 +18,7 @@ public class MindFoodRequest {
 
     private LocalDate toDay;
     private String classification;
+    private String type;
     private String mind;
     private String calculation;
 
