@@ -71,7 +71,7 @@ private final FoodService foodService;
      * 음식에 대해서 좋음 싫음을 표시
      */
     @PostMapping("/love")
-    @ApiOperation(value = "음식에 대해서 좋음, 싫음을 표시합니다.", notes = "mind = 'love', 'hate'를 표시 \n calculation은 'plus','minus'")
+    @ApiOperation(value = "음식에 대해서 좋음, 싫음을 표시합니다.", notes = "중식의 경우, type = A or B \n mind = 'love', 'hate'를 표시 \n calculation은 'plus','minus'")
     public ApplicationResponse<Void> mindFood(@RequestBody MindFoodRequest mindFoodRequest){
         return ApplicationResponse.ok(foodService.mindFood(mindFoodRequest));
     }

@@ -6,7 +6,6 @@ import com.example.myongsick.domain.food.dto.request.MindFoodRequest;
 import com.example.myongsick.domain.food.dto.response.DaysFoodResponse;
 import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 import com.example.myongsick.domain.food.entity.Dinner;
-import com.example.myongsick.domain.food.entity.Food;
 import com.example.myongsick.domain.food.entity.Lunch;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.food.exception.NotOperated;
@@ -78,14 +77,21 @@ public class FoodServiceImpl implements FoodService{
             throw new NotOperated();
         }
 
-        return DaysFoodResponse.toEntity(foodRepository.findByToDay(LocalDate.now()));
+        return DaysFoodResponse.toEntity(lunchRepository.findByToDay(LocalDate.now()), dinnerRepository.findByToDay(LocalDate.now()).get());
     }
 
     @Override
     @Transactional
     public Void mindFood(MindFoodRequest mindFoodRequest) {
-        Food food = foodRepository.findByToDayAndClassification(mindFoodRequest.getToDay(), mindFoodRequest.getClassification()).get();
-        food.mindReflection(mindFoodRequest.getMind(),mindFoodRequest.getCalculation());
+        Long value = 0L;
+        if(mindFoodRequest.getClassification().equals("중식")){//중식
+            Lunch lunch = lunchRepository.findByToDayAndType(mindFoodRequest.getToDay(), mindFoodRequest.getType()).get();
+            lunch.mindReflection(mindFoodRequest.getMind(),mindFoodRequest.getCalculation());
+        }else{//석식
+            Dinner dinner = dinnerRepository.findByToDay(mindFoodRequest.getToDay()).get();
+            dinner.mindReflection(mindFoodRequest.getMind(),mindFoodRequest.getCalculation());
+        }
+
         return null;
     }
 
