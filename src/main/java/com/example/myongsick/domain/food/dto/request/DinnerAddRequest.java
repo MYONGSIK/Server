@@ -16,19 +16,18 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel(description = "음식 추가를 위한 객체")
-public class FoodAddRequest {
+@ApiModel(description = "석식 추가를 위한 객체")
+public class DinnerAddRequest {
 
     private LocalDate toDay;
 
-    private String classification; //중식 석식
     private String status; //운영 미운영
-    private String food1;
-    private String food2;
-    private String food3;
-    private String food4;
-    private String food5;
-    private String food6;
+    private String dinner1;
+    private String dinner2;
+    private String dinner3;
+    private String dinner4;
+    private String dinner5;
+    private String dinner6;
 
 
 

@@ -1,7 +1,8 @@
 package com.example.myongsick.domain.food.service;
 
 
-import com.example.myongsick.domain.food.dto.request.FoodAddRequest;
+import com.example.myongsick.domain.food.dto.request.DinnerAddRequest;
+import com.example.myongsick.domain.food.dto.request.LunchAddRequest;
 import com.example.myongsick.domain.food.dto.request.MindFoodRequest;
 import com.example.myongsick.domain.food.dto.response.DaysFoodResponse;
 import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
@@ -14,10 +15,12 @@ public interface FoodService {
 
     Void addWeek(String startDay, String endDay);
 
-    Void addFoods(FoodAddRequest foodAddRequest);
+    Void addDinner(DinnerAddRequest dinnerAddRequest);
 
     List<DaysFoodResponse> getDaysFoods();
 
 
     Void mindFood(MindFoodRequest mindFoodRequest);
+
+    Void addLunch(LunchAddRequest lunchAddRequest);
 }

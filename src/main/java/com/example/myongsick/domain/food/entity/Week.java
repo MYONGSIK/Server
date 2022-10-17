@@ -26,9 +26,14 @@ public class Week {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDate endDay;
 
-    @BatchSize(size = 10)
     @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)
     private List<Food> foods = new ArrayList<>();
+
+    @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)
+    private List<Dinner> dinners = new ArrayList<>();
+
+    @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)
+    private List<Lunch> lunches = new ArrayList<>();
 
     @Builder
     public Week(LocalDate startDay, LocalDate endDay) {
