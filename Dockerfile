@@ -5,5 +5,4 @@ ARG JAR_FILE=./build/libs/Myongsick-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 #ENTRYPOINT ["java", "-jar", "java ${JAVA_OPTS} -jar /app.jar"]
 #ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar"]
-ENV	USE_PROFILE prod
 ENTRYPOINT ["sh", "-c", "java"," -Dspring.profiles.active=${USE_PROFILE}", " ${JAVA_OPTS} -jar /app.jar"]
