@@ -27,7 +27,7 @@ private final FoodService foodService;
      */
     @GetMapping("/week")
     @ApiOperation(value = "음식 주 단위 조회")
-    public ApplicationResponse<List<List<WeekFoodResponse>>> getWeekFoods(){
+    public ApplicationResponse<List<WeekFoodResponse>> getWeekFoods(){
         return ApplicationResponse.ok(foodService.getWeekFoods());
     }
 
