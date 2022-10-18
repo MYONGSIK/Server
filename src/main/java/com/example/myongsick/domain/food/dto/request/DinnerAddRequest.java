@@ -1,8 +1,6 @@
 package com.example.myongsick.domain.food.dto.request;
 
 
-import com.example.myongsick.domain.food.dto.response.DaysFoodResponse;
-import com.example.myongsick.domain.food.entity.Food;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 @Setter

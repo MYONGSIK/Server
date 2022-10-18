@@ -1,6 +1,7 @@
 package com.example.myongsick.domain.food.dto.response;
 
-import com.example.myongsick.domain.food.entity.Food;
+import com.example.myongsick.domain.food.entity.Dinner;
+import com.example.myongsick.domain.food.entity.Lunch;
 import com.example.myongsick.global.util.DayOfTheWeek;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
@@ -10,8 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Getter
@@ -24,47 +25,45 @@ public class WeekFoodResponse {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDate toDay;
 
+    private String classification; //중식 석식
     private String status; //운영 미운영
     private String dayOfTheWeek;
+    private String type;
 
-    private String lunch1;
-    private String lunch2;
-    private String lunch3;
-    private String lunch4;
-    private String lunch5;
-    private String lunch6;
-    private String dinner1;
-    private String dinner2;
-    private String dinner3;
-    private String dinner4;
-    private String dinner5;
-    private String dinner6;
+    private List<String> foods;
 
 
-    public static List<WeekFoodResponse> toEntity(List<Food> lunch, List<Food> dinner) {
+
+    public static List<WeekFoodResponse> toEntity(List<Lunch> lunchesA, List<Lunch> lunchesB, List<Dinner> dinners) {
         List<WeekFoodResponse> weekFoodResponses = new ArrayList<>();
-
-        for(int i=0; i<5; i++){
+        for(int i=0; i< dinners.size(); i++){
+            addList(lunchesA, weekFoodResponses, i);
+            addList(lunchesB, weekFoodResponses, i);
             weekFoodResponses.add(
-                WeekFoodResponse.builder()
-                        .toDay(lunch.get(i).getToDay())
-                        .status(lunch.get(i).getStatus())
-                        .dayOfTheWeek(DayOfTheWeek.DayOfTheWeekConvert(lunch.get(i).getToDay()))
-                        .lunch1(lunch.get(i).getFood1())
-                        .lunch2(lunch.get(i).getFood2())
-                        .lunch3(lunch.get(i).getFood3())
-                        .lunch4(lunch.get(i).getFood4())
-                        .lunch5(lunch.get(i).getFood5())
-                        .lunch6(lunch.get(i).getFood6())
-                        .dinner1(dinner.get(i).getFood1())
-                        .dinner2(dinner.get(i).getFood2())
-                        .dinner3(dinner.get(i).getFood3())
-                        .dinner4(dinner.get(i).getFood4())
-                        .dinner5(dinner.get(i).getFood5())
-                        .dinner6(dinner.get(i).getFood6())
-                        .build()
+                    WeekFoodResponse.builder()
+                            .toDay(dinners.get(i).getToDay())
+                            .status(dinners.get(i).getStatus())
+                            .classification("석식")
+                            .type(null)
+                            .dayOfTheWeek(DayOfTheWeek.DayOfTheWeekConvert(dinners.get(i).getToDay()))
+                            .foods(Arrays.asList(dinners.get(i).getDinner1(), dinners.get(i).getDinner2(),dinners.get(i).getDinner3(),dinners.get(i).getDinner4(),dinners.get(i).getDinner5(),dinners.get(i).getDinner6()))
+                            .build()
             );
         }
         return weekFoodResponses;
     }
+
+    private static void addList(List<Lunch> lunches, List<WeekFoodResponse> weekFoodResponses, int i) {
+        weekFoodResponses.add(
+                WeekFoodResponse.builder()
+                        .toDay(lunches.get(i).getToDay())
+                        .status(lunches.get(i).getStatus())
+                        .classification("중식")
+                        .type(lunches.get(i).getType())
+                        .dayOfTheWeek(DayOfTheWeek.DayOfTheWeekConvert(lunches.get(i).getToDay()))
+                        .foods(Arrays.asList(lunches.get(i).getLunch1(), lunches.get(i).getLunch2(),lunches.get(i).getLunch3(),lunches.get(i).getLunch4(),lunches.get(i).getLunch5(),lunches.get(i).getLunch6()))
+                        .build()
+        );
+    }
+
 }
