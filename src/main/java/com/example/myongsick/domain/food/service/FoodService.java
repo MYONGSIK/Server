@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface FoodService {
 
-    List<List<WeekFoodResponse>> getWeekFoods();
+    List<WeekFoodResponse> getWeekFoods();
 
     Void addWeek(String startDay, String endDay);
 
