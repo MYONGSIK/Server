@@ -1,7 +1,6 @@
 package com.example.myongsick.domain.food.dto.response;
 
 import com.example.myongsick.domain.food.entity.Dinner;
-import com.example.myongsick.domain.food.entity.Food;
 import com.example.myongsick.domain.food.entity.Lunch;
 import com.example.myongsick.global.util.DayOfTheWeek;
 import io.swagger.annotations.ApiModel;

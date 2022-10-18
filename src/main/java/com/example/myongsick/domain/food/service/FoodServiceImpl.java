@@ -10,7 +10,6 @@ import com.example.myongsick.domain.food.entity.Lunch;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.food.exception.NotOperated;
 import com.example.myongsick.domain.food.repository.DinnerRepository;
-import com.example.myongsick.domain.food.repository.FoodRepository;
 import com.example.myongsick.domain.food.repository.LunchRepository;
 import com.example.myongsick.domain.food.repository.WeekRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +25,6 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class FoodServiceImpl implements FoodService{
 
-    private final FoodRepository foodRepository;
     private final WeekRepository weekRepository;
     private final DinnerRepository dinnerRepository;
     private final LunchRepository lunchRepository;
@@ -34,7 +32,7 @@ public class FoodServiceImpl implements FoodService{
     @Override
     public List<WeekFoodResponse> getWeekFoods() {
         Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(LocalDate.now(), LocalDate.now()).get();
-        return WeekFoodResponse.toEntity(foodRepository.findByWeekAndClassification(week, "중식"), foodRepository.findByWeekAndClassification(week, "석식"));
+        return WeekFoodResponse.toEntity(lunchRepository.findByWeekAndType(week,"A"), lunchRepository.findByWeekAndType(week,"B"),dinnerRepository.findByWeek(week));
     }
 
     @Override

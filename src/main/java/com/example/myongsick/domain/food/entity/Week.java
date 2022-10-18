@@ -27,9 +27,6 @@ public class Week {
     private LocalDate endDay;
 
     @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)
-    private List<Food> foods = new ArrayList<>();
-
-    @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)
     private List<Dinner> dinners = new ArrayList<>();
 
     @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)

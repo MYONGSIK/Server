@@ -1,6 +1,5 @@
 package com.example.myongsick.domain.food.dto.request;
 
-import com.example.myongsick.domain.food.entity.Food;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
