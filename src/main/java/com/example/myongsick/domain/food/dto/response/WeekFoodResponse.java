@@ -34,21 +34,25 @@ public class WeekFoodResponse {
 
 
 
-    public static List<WeekFoodResponse> toEntity(List<Lunch> lunchesA, List<Lunch> lunchesB, List<Dinner> dinners) {
-        List<WeekFoodResponse> weekFoodResponses = new ArrayList<>();
-        for(int i=0; i< dinners.size(); i++){
-            addList(lunchesA, weekFoodResponses, i);
-            addList(lunchesB, weekFoodResponses, i);
-            weekFoodResponses.add(
+    public static List<List<WeekFoodResponse>> toEntity(List<Lunch> lunchesA, List<Lunch> lunchesB, List<Dinner> dinners) {
+        List<List<WeekFoodResponse>> weekFoodResponses = new ArrayList<>();
+        List<WeekFoodResponse> weekFoodResponseList;
+
+        for(int i=0; i<5; i++) {//일자별
+            weekFoodResponseList = new ArrayList<>();
+            addList(lunchesA, weekFoodResponseList, i);
+            addList(lunchesB, weekFoodResponseList, i);
+            weekFoodResponseList.add(
                     WeekFoodResponse.builder()
                             .toDay(dinners.get(i).getToDay())
                             .status(dinners.get(i).getStatus())
                             .classification("석식")
                             .type(null)
                             .dayOfTheWeek(DayOfTheWeek.DayOfTheWeekConvert(dinners.get(i).getToDay()))
-                            .foods(Arrays.asList(dinners.get(i).getDinner1(), dinners.get(i).getDinner2(),dinners.get(i).getDinner3(),dinners.get(i).getDinner4(),dinners.get(i).getDinner5(),dinners.get(i).getDinner6()))
+                            .foods(Arrays.asList(dinners.get(i).getDinner1(), dinners.get(i).getDinner2(), dinners.get(i).getDinner3(), dinners.get(i).getDinner4(), dinners.get(i).getDinner5(), dinners.get(i).getDinner6()))
                             .build()
             );
+            weekFoodResponses.add(weekFoodResponseList);
         }
         return weekFoodResponses;
     }
