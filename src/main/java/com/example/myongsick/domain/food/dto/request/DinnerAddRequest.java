@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.food.dto.request;
 
+
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,13 +13,19 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel(description = "유저 음식 관련한 마음을 표시")
-public class MindFoodRequest {
+@ApiModel(description = "석식 추가를 위한 객체")
+public class DinnerAddRequest {
 
     private LocalDate toDay;
-    private String classification;
-    private String type;
-    private String mind;
-    private String calculation;
+
+    private String status; //운영 미운영
+    private String dinner1;
+    private String dinner2;
+    private String dinner3;
+    private String dinner4;
+    private String dinner5;
+    private String dinner6;
+
+
 
 }

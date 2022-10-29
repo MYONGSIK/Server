@@ -1,9 +1,7 @@
 package com.example.myongsick.domain.food.repository;
 
-import com.example.myongsick.domain.food.entity.Food;
 import com.example.myongsick.domain.food.entity.Week;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.util.Optional;

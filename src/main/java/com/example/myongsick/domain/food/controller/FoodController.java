@@ -1,20 +1,18 @@
 package com.example.myongsick.domain.food.controller;
 
-import com.example.myongsick.domain.food.dto.request.FoodAddRequest;
+import com.example.myongsick.domain.food.dto.request.DinnerAddRequest;
+import com.example.myongsick.domain.food.dto.request.LunchAddRequest;
 import com.example.myongsick.domain.food.dto.request.MindFoodRequest;
 import com.example.myongsick.domain.food.dto.response.DaysFoodResponse;
 import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 import com.example.myongsick.domain.food.service.FoodService;
 import com.example.myongsick.global.object.ApplicationResponse;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -54,19 +52,27 @@ private final FoodService foodService;
     }
 
     /**
-     * 음식 추가
+     * 석식 메뉴 추가
      */
-    @PostMapping("")
-    public ApplicationResponse<Void> addFoods(@RequestBody FoodAddRequest foodAddRequest){
-        return ApplicationResponse.ok(foodService.addFoods(foodAddRequest));
+    @PostMapping("/dinner")
+    public ApplicationResponse<Void> addDinner(@RequestBody DinnerAddRequest dinnerAddRequest){
+        return ApplicationResponse.ok(foodService.addDinner(dinnerAddRequest));
     }
 
+    /**
+     * 중식 메뉴 추가
+     */
+    @PostMapping("/lunch")
+    public ApplicationResponse<Void> addLunch(@RequestBody LunchAddRequest lunchAddRequest){
+        return ApplicationResponse.ok(foodService.addLunch(lunchAddRequest));
+    }
+
+    /**
+     * 음식에 대해서 좋음 싫음을 표시
+     */
     @PostMapping("/love")
-    @ApiOperation(value = "음식에 대해서 좋음, 싫음을 표시합니다.", notes = "mind = 'love', 'hate'를 표시 \n calculation은 'plus','minus'")
+    @ApiOperation(value = "음식에 대해서 좋음, 싫음을 표시합니다.", notes = "중식의 경우, type = A or B \n mind = 'love', 'hate'를 표시 \n calculation은 'plus','minus'")
     public ApplicationResponse<Void> mindFood(@RequestBody MindFoodRequest mindFoodRequest){
         return ApplicationResponse.ok(foodService.mindFood(mindFoodRequest));
     }
-
-
-
 }

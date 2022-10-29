@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: myongsikMain
+  datasource:
+    url: ENC(sHx9xyPzq0K9mKUwiRbAhll3qwWlD+60/UyiipBNCRmSlLZI+4ddjKVlNQPD4WUYFk8+qg/BVvRSEVFUKWYxC8aUttkDiysGyp8deZfcIHaoXmnPeEbLeKKBP57gxVYS+oKOVnR7VnM=)
+    username: ENC(LDZlSP/a7YZxC8/LtGQQ3A==)
+    password: ENC(U2EgJgWEZGpXlNpc0UoZx3X+DYaGddwu)
+    driver-class-name: com.mysql.cj.jdbc.Driver

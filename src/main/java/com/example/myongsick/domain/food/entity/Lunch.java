@@ -7,12 +7,15 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
-@Getter
 @RequiredArgsConstructor
-public class Food {
+@Getter
+public class Lunch {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,14 +23,14 @@ public class Food {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDate toDay;
 
-    private String classification; //중식 석식
     private String status; //운영 미운영
-    private String food1;
-    private String food2;
-    private String food3;
-    private String food4;
-    private String food5;
-    private String food6;
+    private String type;
+    private String lunch1;
+    private String lunch2;
+    private String lunch3;
+    private String lunch4;
+    private String lunch5;
+    private String lunch6;
 
     private Long love;
     private Long hate;
@@ -36,19 +39,19 @@ public class Food {
     private Week week;
 
     @Builder
-    public Food(LocalDate toDay, String classification, String status, String food1, String food2, String food3, String food4, String food5, String food6, Week week) {
+    public Lunch(LocalDate toDay, String type, String status, String lunch1, String lunch2, String lunch3, String lunch4, String lunch5, String lunch6, Week week) {
         this.toDay = toDay;
-        this.classification = classification;
+        this.type = type;
         this.status = status;
-        this.food1 = food1;
-        this.food2 = food2;
-        this.food3 = food3;
-        this.food4 = food4;
-        this.food5 = food5;
-        this.food6 = food6;
-        this.hate = 0L;
+        this.lunch1 = lunch1;
+        this.lunch2 = lunch2;
+        this.lunch3 = lunch3;
+        this.lunch4 = lunch4;
+        this.lunch5 = lunch5;
+        this.lunch6 = lunch6;
         this.love = 0L;
-        this.week =  week;
+        this.hate = 0L;
+        this.week = week;
     }
 
     public void mindReflection(String mind, String calculation) {
