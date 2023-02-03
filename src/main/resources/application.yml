@@ -1,6 +1,11 @@
 spring:
   application:
     name: myongsikMain
+
+  profiles:
+    include:
+      secret
+
   jpa:
     hibernate:
       ddl-auto: update
