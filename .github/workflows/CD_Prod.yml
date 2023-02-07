@@ -76,8 +76,8 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            docker stop myongsick_dev
-            docker rm myongsick_dev
+            docker stop myongsik_prod1
+            docker rm myongsik_prod1
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/myongsik
             sudo docker run -d --name myongsik_prod1 -v /etc/localtime:/etc/localtime:ro -e JAVA_OPTS=-Djasypt.encryptor.password=${{ secrets.YML_PASSWORD }} -e TZ=Asia/Seoul -e ENVIRONMENT_VALUE=-Dspring.profiles.active=prod -p 8081:8080 ${{ secrets.DOCKER_USERNAME }}/myongsik:latest
             docker rmi -f $(docker images -f "dangling=true" -q)
