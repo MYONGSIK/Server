@@ -77,7 +77,5 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/myongsik-dev
-            docker ps -q --filter name=myongsick_dev | grep -q . && docker rm -f $(docker ps -aq --filter name=myongsick_dev)
-            docker rm $(docker ps -a -q)
-            docker rmi -f $(docker images -f "dangling=true" -q)
             sudo docker run -d —name myongsick_dev -v /etc/localtime:/etc/localtime:ro -e JAVA_OPTS=-Djasypt.encryptor.password=${{ secrets.YML_PASSWORD }} -e TZ=Asia/Seoul -e ENVIRONMENT_VALUE=-Dspring.profiles.active=dev -p 8081:8080 ${{ secrets.DOCKER_USERNAME }}/myongsik-dev
+            docker rmi -f $(docker images -f "dangling=true" -q)
