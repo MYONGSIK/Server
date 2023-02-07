@@ -34,4 +34,10 @@ class FoodServiceImplTest {
     // then
    assertThrows(NoSuchElementException.class, () -> foodService.getWeekFoods());
   }
+
+  @Test
+  @DisplayName("주간 식단 조회시, 값이 없는 경우 - 실패")
+  void 주간식단조회_실패() {
+    assertThrows(IndexOutOfBoundsException.class, () -> foodService.getWeekFoods());
+  }
 }
