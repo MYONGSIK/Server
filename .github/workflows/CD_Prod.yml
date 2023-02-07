@@ -1,0 +1,83 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Java CD with Gradle
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+permissions: write-all
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) 워크플로우 실행 전 기본적으로 체크아웃 필요
+      - uses: actions/checkout@v3
+
+      # 2) JDK 11 버전 설치
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      # 3) Gradle Caching
+      - name: Gradle Cashing
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # 4) Gradle 권한 부여
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # 5) Build exclude test package
+      #- name: Build with gradle
+      #  run: ./gradlew build -x test
+
+      # 6) Set for yml
+      - name: Make application-secret.yml
+        run: |
+          cd ./src/main/resources
+          touch ./application-secret.yml
+          echo "${{ secrets.PROPERTIES_TEST }}" > ./application-secret.yml
+        shell: bash
+
+      # 7) 빌드
+      - name: Build with gradle
+        run: ./gradlew bootJar
+
+      # 8) Docker 빌드 & 푸쉬
+      - name: docker build and push
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -f Dockerfile -t myongsik_prod1 .
+          docker tag myongsik_prod1 ${{ secrets.DOCKER_USERNAME }}/myongsik
+          docker push ${{ secrets.DOCKER_USERNAME }}/myongsik
+
+      # 9) Deploy
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            docker stop myongsik_prod1
+            docker rm myongsik_prod1
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/myongsik
+            sudo docker run -d --name myongsik_prod1 -v /etc/localtime:/etc/localtime:ro -e JAVA_OPTS=-Djasypt.encryptor.password=${{ secrets.YML_PASSWORD }} -e TZ=Asia/Seoul -e ENVIRONMENT_VALUE=-Dspring.profiles.active=prod -p 8081:8080 ${{ secrets.DOCKER_USERNAME }}/myongsik:latest
+            docker rmi -f $(docker images -f "dangling=true" -q)
