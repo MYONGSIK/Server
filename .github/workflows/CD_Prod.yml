@@ -64,12 +64,11 @@ jobs:
       - name: docker build and push
         run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker build -f Dockerfile -t myongsik_prod1 .
-          docker tag myongsik_prod1 ${{ secrets.DOCKER_USERNAME }}/myongsik
+          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/myongsik .
           docker push ${{ secrets.DOCKER_USERNAME }}/myongsik
 
-      # 9) Deploy
-      - name: Deploy
+      # 9) Deploy (PROD1)
+      - name: Deploy (PROD1)
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -80,4 +79,19 @@ jobs:
             docker rm myongsik_prod1
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/myongsik
             sudo docker run -d --name myongsik_prod1 -v /etc/localtime:/etc/localtime:ro -e JAVA_OPTS=-Djasypt.encryptor.password=${{ secrets.YML_PASSWORD }} -e TZ=Asia/Seoul -e ENVIRONMENT_VALUE=-Dspring.profiles.active=prod -p 8085:8080 ${{ secrets.DOCKER_USERNAME }}/myongsik:latest
+            docker rmi -f $(docker images -f "dangling=true" -q)
+
+      # 10) Deploy (PROD2)
+      - name: Deploy (PROD2)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST_PROD2 }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            docker stop myongsik_prod2
+            docker rm myongsik_prod2
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/myongsik
+            sudo docker run -d --name myongsik_prod2 -v /etc/localtime:/etc/localtime:ro -e JAVA_OPTS=-Djasypt.encryptor.password=${{ secrets.YML_PASSWORD }} -e TZ=Asia/Seoul -e ENVIRONMENT_VALUE=-Dspring.profiles.active=prod -p 8085:8080 ${{ secrets.DOCKER_USERNAME }}/myongsik:latest
             docker rmi -f $(docker images -f "dangling=true" -q)
