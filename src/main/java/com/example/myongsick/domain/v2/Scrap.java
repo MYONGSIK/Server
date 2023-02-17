@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.v2;
 
+import com.example.myongsick.domain.user.User;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
