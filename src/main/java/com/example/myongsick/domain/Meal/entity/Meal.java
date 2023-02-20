@@ -1,7 +1,9 @@
-package com.example.myongsick.domain.Meal.entity;
-
+package com.example.myongsick.domain.meal.entity;
 
 import com.example.myongsick.domain.food.entity.Week;
+import com.example.myongsick.domain.meal.entity.MealType;
+import com.example.myongsick.domain.meal.entity.StatusType;
+import com.example.myongsick.domain.meal.entity.Area;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
 import lombok.Builder;

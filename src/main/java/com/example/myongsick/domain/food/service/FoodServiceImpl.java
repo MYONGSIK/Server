@@ -1,6 +1,6 @@
 package com.example.myongsick.domain.food.service;
 
-import com.example.myongsick.domain.Meal.exception.excute.NotOperatedException;
+import com.example.myongsick.domain.meal.exception.excute.NotOperatedException;
 import com.example.myongsick.domain.food.dto.request.DinnerAddRequest;
 import com.example.myongsick.domain.food.dto.request.LunchAddRequest;
 import com.example.myongsick.domain.food.dto.request.MindFoodRequest;

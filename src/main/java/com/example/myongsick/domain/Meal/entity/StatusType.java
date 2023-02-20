@@ -1,4 +1,4 @@
-package com.example.myongsick.domain.Meal.entity;
+package com.example.myongsick.domain.meal.entity;
 
 public enum StatusType {
   OPEN,

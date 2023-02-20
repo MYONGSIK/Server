@@ -1,9 +1,9 @@
-package com.example.myongsick.domain.Meal.exception.excute;
+package com.example.myongsick.domain.meal.exception.excute;
 
 
-import com.example.myongsick.domain.Meal.exception.MealException;
+import com.example.myongsick.domain.meal.exception.MealException;
 
-import static com.example.myongsick.domain.Meal.exception.MealExceptionEnum.NOT_FOUND_AREA;
+import static com.example.myongsick.domain.meal.exception.MealExceptionEnum.NOT_FOUND_AREA;
 
 public class NotFoundAreaException extends MealException {
     public NotFoundAreaException() {

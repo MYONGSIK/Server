@@ -1,7 +1,7 @@
 package com.example.myongsick.domain.review.service;
 
-import com.example.myongsick.domain.Meal.entity.Meal;
-import com.example.myongsick.domain.Meal.repository.MealRepository;
+import com.example.myongsick.domain.meal.entity.Meal;
+import com.example.myongsick.domain.meal.repository.MealRepository;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;
 import com.example.myongsick.domain.review.entity.Review;

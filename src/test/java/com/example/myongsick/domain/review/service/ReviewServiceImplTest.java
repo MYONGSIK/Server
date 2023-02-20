@@ -1,9 +1,9 @@
 package com.example.myongsick.domain.review.service;
 
-import com.example.myongsick.domain.Meal.entity.Area;
-import com.example.myongsick.domain.Meal.entity.Meal;
-import com.example.myongsick.domain.Meal.entity.MealType;
-import com.example.myongsick.domain.Meal.repository.MealRepository;
+import com.example.myongsick.domain.meal.entity.Area;
+import com.example.myongsick.domain.meal.entity.Meal;
+import com.example.myongsick.domain.meal.entity.MealType;
+import com.example.myongsick.domain.meal.repository.MealRepository;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;

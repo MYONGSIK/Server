@@ -1,4 +1,4 @@
-package com.example.myongsick.domain.Meal.exception;
+package com.example.myongsick.domain.meal.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
