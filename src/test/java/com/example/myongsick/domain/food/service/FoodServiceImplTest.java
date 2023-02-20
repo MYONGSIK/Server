@@ -1,28 +1,27 @@
 package com.example.myongsick.domain.food.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 import com.example.myongsick.domain.food.repository.DinnerRepository;
 import com.example.myongsick.domain.food.repository.LunchRepository;
 import com.example.myongsick.domain.food.repository.WeekRepository;
-import java.util.List;
 import java.util.NoSuchElementException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@Transactional
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class FoodServiceImplTest {
 
-  @Autowired FoodServiceImpl foodService;
-  @Autowired WeekRepository weekRepository;
-  @Autowired DinnerRepository dinnerRepository;
-  @Autowired LunchRepository lunchRepository;
+  @InjectMocks
+  FoodServiceImpl foodService;
+  @Mock
+  WeekRepository weekRepository;
+  @Mock DinnerRepository dinnerRepository;
+  @Mock LunchRepository lunchRepository;
 
   @Test
   @DisplayName("주간 식단 조회시, 값이 없는 경우 - 예외")
