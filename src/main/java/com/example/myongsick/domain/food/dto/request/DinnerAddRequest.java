@@ -1,7 +1,9 @@
 package com.example.myongsick.domain.food.dto.request;
 
 
+import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,6 @@ import java.time.LocalDate;
 public class DinnerAddRequest {
 
     private LocalDate toDay;
-
     private String status; //운영 미운영
     private String dinner1;
     private String dinner2;
