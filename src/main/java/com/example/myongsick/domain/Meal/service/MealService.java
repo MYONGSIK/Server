@@ -1,8 +1,9 @@
-package com.example.myongsick.domain.v2.Meal.service;
+package com.example.myongsick.domain.Meal.service;
 
-import com.example.myongsick.domain.v2.Meal.dto.request.MealCreateReq;
-import com.example.myongsick.domain.v2.Meal.dto.request.MealNotRegisterReq;
-import com.example.myongsick.domain.v2.Meal.dto.response.MealResponse;
+
+import com.example.myongsick.domain.Meal.dto.request.MealCreateReq;
+import com.example.myongsick.domain.Meal.dto.request.MealNotRegisterReq;
+import com.example.myongsick.domain.Meal.dto.response.MealResponse;
 
 import java.util.List;
 

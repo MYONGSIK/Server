@@ -1,8 +1,9 @@
-package com.example.myongsick.domain.v2.Meal.dto.response;
+package com.example.myongsick.domain.Meal.dto.response;
 
-import com.example.myongsick.domain.v2.Meal.entity.Meal;
-import com.example.myongsick.domain.v2.Meal.entity.MealType;
-import com.example.myongsick.domain.v2.Meal.entity.StatusType;
+
+import com.example.myongsick.domain.Meal.entity.Meal;
+import com.example.myongsick.domain.Meal.entity.MealType;
+import com.example.myongsick.domain.Meal.entity.StatusType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;

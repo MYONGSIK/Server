@@ -1,11 +1,8 @@
-package com.example.myongsick.domain.v2.Meal.exception.excute;
+package com.example.myongsick.domain.Meal.exception.excute;
 
-import com.example.myongsick.domain.food.exception.FoodException;
-import com.example.myongsick.domain.v2.Meal.exception.MealException;
-import com.example.myongsick.domain.v2.Meal.service.MealService;
-import org.springframework.http.HttpStatus;
+import com.example.myongsick.domain.Meal.exception.MealException;
 
-import static com.example.myongsick.domain.food.exception.FoodExceptionEnum.*;
+import static com.example.myongsick.domain.food.exception.FoodExceptionEnum.NOT_OPERATED;
 
 public class NotOperatedException extends MealException {
     public NotOperatedException() {

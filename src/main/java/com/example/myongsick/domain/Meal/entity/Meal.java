@@ -1,10 +1,7 @@
-package com.example.myongsick.domain.v2.Meal.entity;
+package com.example.myongsick.domain.Meal.entity;
 
 
 import com.example.myongsick.domain.food.entity.Week;
-import com.example.myongsick.domain.v2.Meal.entity.Area;
-import com.example.myongsick.domain.v2.Meal.entity.MealType;
-import com.example.myongsick.domain.v2.Meal.entity.StatusType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -51,11 +48,11 @@ public class Meal {
 
   @Builder
   public Meal(MealType mealType,
-      List<String> menus,
-      LocalDate offeredAt,
-      Week week,
-      Area area,
-      StatusType statusType) {
+              List<String> menus,
+              LocalDate offeredAt,
+              Week week,
+              Area area,
+              StatusType statusType) {
     this.mealType = mealType;
     this.menu1 = menus.get(0);
     this.menu2 = menus.get(1);

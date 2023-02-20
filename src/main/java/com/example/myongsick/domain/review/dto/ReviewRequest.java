@@ -1,6 +1,6 @@
 package com.example.myongsick.domain.review.dto;
 
-import com.example.myongsick.domain.v2.Meal.entity.Meal;
+import com.example.myongsick.domain.Meal.entity.Meal;
 import com.example.myongsick.domain.review.entity.Review;
 import com.example.myongsick.domain.user.User;
 import io.swagger.annotations.ApiModel;

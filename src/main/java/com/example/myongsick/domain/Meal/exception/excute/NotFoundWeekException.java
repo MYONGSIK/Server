@@ -1,9 +1,9 @@
-package com.example.myongsick.domain.v2.Meal.exception.excute;
+package com.example.myongsick.domain.Meal.exception.excute;
 
-import com.example.myongsick.domain.v2.Meal.exception.MealException;
-import org.springframework.http.HttpStatus;
 
-import static com.example.myongsick.domain.v2.Meal.exception.MealExceptionEnum.NOT_FOUND_WEEK;
+import com.example.myongsick.domain.Meal.exception.MealException;
+
+import static com.example.myongsick.domain.Meal.exception.MealExceptionEnum.NOT_FOUND_WEEK;
 
 public class NotFoundWeekException extends MealException {
     public NotFoundWeekException() {

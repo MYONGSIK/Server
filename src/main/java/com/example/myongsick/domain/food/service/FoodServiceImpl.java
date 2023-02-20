@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.food.service;
 
+import com.example.myongsick.domain.Meal.exception.excute.NotOperatedException;
 import com.example.myongsick.domain.food.dto.request.DinnerAddRequest;
 import com.example.myongsick.domain.food.dto.request.LunchAddRequest;
 import com.example.myongsick.domain.food.dto.request.MindFoodRequest;
@@ -8,7 +9,6 @@ import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 import com.example.myongsick.domain.food.entity.Dinner;
 import com.example.myongsick.domain.food.entity.Lunch;
 import com.example.myongsick.domain.food.entity.Week;
-import com.example.myongsick.domain.v2.Meal.exception.excute.NotOperatedException;
 import com.example.myongsick.domain.food.repository.DinnerRepository;
 import com.example.myongsick.domain.food.repository.LunchRepository;
 import com.example.myongsick.domain.food.repository.WeekRepository;

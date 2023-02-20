@@ -1,4 +1,4 @@
-package com.example.myongsick.domain.v2.Meal.entity;
+package com.example.myongsick.domain.Meal.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

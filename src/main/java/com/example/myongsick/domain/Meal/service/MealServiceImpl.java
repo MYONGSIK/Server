@@ -1,19 +1,19 @@
-package com.example.myongsick.domain.v2.Meal.service;
+package com.example.myongsick.domain.Meal.service;
 
+import com.example.myongsick.domain.Meal.repository.AreaRepository;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.food.repository.WeekRepository;
-import com.example.myongsick.domain.v2.Meal.entity.Meal;
-import com.example.myongsick.domain.v2.Meal.dto.request.MealCreateReq;
-import com.example.myongsick.domain.v2.Meal.dto.request.MealNotRegisterReq;
-import com.example.myongsick.domain.v2.Meal.dto.response.MealResponse;
-import com.example.myongsick.domain.v2.Meal.entity.Area;
-import com.example.myongsick.domain.v2.Meal.entity.MealType;
-import com.example.myongsick.domain.v2.Meal.entity.StatusType;
-import com.example.myongsick.domain.v2.Meal.exception.excute.AlreadyAreaException;
-import com.example.myongsick.domain.v2.Meal.exception.excute.NotFoundAreaException;
-import com.example.myongsick.domain.v2.Meal.exception.excute.NotOperatedException;
-import com.example.myongsick.domain.v2.Meal.repository.AreaRepository;
-import com.example.myongsick.domain.v2.Meal.repository.MealRepository;
+import com.example.myongsick.domain.Meal.entity.Meal;
+import com.example.myongsick.domain.Meal.dto.request.MealCreateReq;
+import com.example.myongsick.domain.Meal.dto.request.MealNotRegisterReq;
+import com.example.myongsick.domain.Meal.dto.response.MealResponse;
+import com.example.myongsick.domain.Meal.entity.Area;
+import com.example.myongsick.domain.Meal.entity.MealType;
+import com.example.myongsick.domain.Meal.entity.StatusType;
+import com.example.myongsick.domain.Meal.exception.excute.AlreadyAreaException;
+import com.example.myongsick.domain.Meal.exception.excute.NotFoundAreaException;
+import com.example.myongsick.domain.Meal.exception.excute.NotOperatedException;
+import com.example.myongsick.domain.Meal.repository.MealRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +26,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MealServiceImpl implements MealService{
+public class MealServiceImpl implements MealService {
 
     private final MealRepository mealRepository;
     private final WeekRepository weekRepository;

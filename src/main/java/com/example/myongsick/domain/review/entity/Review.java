@@ -1,6 +1,6 @@
 package com.example.myongsick.domain.review.entity;
 
-import com.example.myongsick.domain.v2.Meal.entity.Meal;
+import com.example.myongsick.domain.Meal.entity.Meal;
 import com.example.myongsick.domain.user.User;
 import java.time.LocalDate;
 import javax.persistence.Column;

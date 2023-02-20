@@ -1,6 +1,7 @@
 package com.example.myongsick.domain.review.service;
 
-import com.example.myongsick.domain.v2.Meal.entity.Meal;
+import com.example.myongsick.domain.Meal.entity.Meal;
+import com.example.myongsick.domain.Meal.repository.MealRepository;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;
 import com.example.myongsick.domain.review.entity.Review;
@@ -8,7 +9,6 @@ import com.example.myongsick.domain.review.exception.ReviewNotFoundException;
 import com.example.myongsick.domain.review.repository.ReviewRepository;
 import com.example.myongsick.domain.user.User;
 import com.example.myongsick.domain.user.UserRepository;
-import com.example.myongsick.domain.v2.Meal.repository.MealRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

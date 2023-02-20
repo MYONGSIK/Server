@@ -1,4 +1,4 @@
-package com.example.myongsick.domain.v2.Meal.dto.request;
+package com.example.myongsick.domain.Meal.dto.request;
 
 
 import io.swagger.annotations.ApiModel;
