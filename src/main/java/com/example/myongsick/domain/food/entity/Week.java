@@ -1,14 +1,13 @@
 package com.example.myongsick.domain.food.entity;
 
+import com.example.myongsick.domain.v2.Meal.entity.Meal;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +31,16 @@ public class Week {
     @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)
     private List<Lunch> lunches = new ArrayList<>();
 
+    @OneToMany(mappedBy = "week", fetch = FetchType.LAZY)
+    private List<Meal> mealList = new ArrayList<>();
+
     @Builder
     public Week(LocalDate startDay, LocalDate endDay) {
         this.startDay = startDay;
         this.endDay = endDay;
+    }
+
+    public void addMeal(Meal meal) {
+        this.mealList.add(meal);
     }
 }

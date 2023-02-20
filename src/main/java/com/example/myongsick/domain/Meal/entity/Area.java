@@ -1,4 +1,4 @@
-package com.example.myongsick.domain.v2;
+package com.example.myongsick.domain.v2.Meal.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,4 +22,8 @@ public class Area {
 
   private String name;
 
+  @Builder
+  public Area(String name) {
+    this.name = name;
+  }
 }

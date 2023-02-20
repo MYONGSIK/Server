@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
 
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.4'
 }
 
 tasks.named('test') {

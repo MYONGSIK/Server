@@ -8,7 +8,7 @@ import com.example.myongsick.domain.food.dto.response.WeekFoodResponse;
 import com.example.myongsick.domain.food.entity.Dinner;
 import com.example.myongsick.domain.food.entity.Lunch;
 import com.example.myongsick.domain.food.entity.Week;
-import com.example.myongsick.domain.food.exception.NotOperated;
+import com.example.myongsick.domain.v2.Meal.exception.excute.NotOperatedException;
 import com.example.myongsick.domain.food.repository.DinnerRepository;
 import com.example.myongsick.domain.food.repository.LunchRepository;
 import com.example.myongsick.domain.food.repository.WeekRepository;
@@ -42,7 +42,6 @@ public class FoodServiceImpl implements FoodService{
                 .startDay(LocalDate.parse(startDay))
                 .endDay(LocalDate.parse(endDay))
                 .build());
-
         return null;
     }
 
@@ -67,12 +66,11 @@ public class FoodServiceImpl implements FoodService{
 
     @Override
     public List<DaysFoodResponse> getDaysFoods() {
-
         DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
         if(dayOfWeek.equals(DayOfWeek.SATURDAY)){
-            throw new NotOperated();
+            throw new NotOperatedException();
         }else if(dayOfWeek.equals(DayOfWeek.SUNDAY)){
-            throw new NotOperated();
+            throw new NotOperatedException();
         }
 
         return DaysFoodResponse.toEntity(lunchRepository.findByToDay(LocalDate.now()), dinnerRepository.findByToDay(LocalDate.now()).get());

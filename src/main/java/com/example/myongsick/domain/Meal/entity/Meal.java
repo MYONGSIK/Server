@@ -1,24 +1,19 @@
-package com.example.myongsick.domain.meal;
+package com.example.myongsick.domain.v2.Meal.entity;
 
-import com.example.myongsick.domain.v2.Area;
-import com.example.myongsick.domain.v2.MealType;
-import com.example.myongsick.domain.v2.StatusType;
-import com.example.myongsick.domain.v2.WeekMeal;
+
+import com.example.myongsick.domain.food.entity.Week;
+import com.example.myongsick.domain.v2.Meal.entity.Area;
+import com.example.myongsick.domain.v2.Meal.entity.MealType;
+import com.example.myongsick.domain.v2.Meal.entity.StatusType;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.time.LocalDate;
-import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,7 +23,11 @@ public class Meal {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Enumerated(EnumType.STRING)
   private MealType mealType;
+
+  @Enumerated(EnumType.STRING)
+  private StatusType statusType;
 
   private String menu1;
   private String menu2;
@@ -36,8 +35,6 @@ public class Meal {
   private String menu4;
   private String menu5;
   private String menu6;
-
-  private StatusType statusType;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
   private LocalDate offeredAt;
@@ -47,7 +44,7 @@ public class Meal {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "week_meal_id")
-  private WeekMeal week;
+  private Week week;
 
   @OneToOne
   private Area area;
@@ -56,8 +53,9 @@ public class Meal {
   public Meal(MealType mealType,
       List<String> menus,
       LocalDate offeredAt,
-      WeekMeal weekMeal,
-      Area area) {
+      Week week,
+      Area area,
+      StatusType statusType) {
     this.mealType = mealType;
     this.menu1 = menus.get(0);
     this.menu2 = menus.get(1);
@@ -65,15 +63,15 @@ public class Meal {
     this.menu4 = menus.get(3);
     this.menu5 = menus.get(4);
     this.menu6 = menus.get(5);
-    this.statusType = StatusType.OPEN;
+    this.statusType = statusType;
     this.offeredAt = offeredAt;
     this.love = 0;
     this.hate = 0;
-    this.addWeek(weekMeal);
+    this.addWeek(week);
     this.area = area;
   }
 
-  public void addWeek(WeekMeal week){
+  public void addWeek(Week week){
     this.week = week;
     week.addMeal(this);
   }
