@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.meal.service;
 
+import com.example.myongsick.domain.meal.exception.excute.NotFoundWeekException;
 import com.example.myongsick.domain.meal.repository.AreaRepository;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.food.repository.WeekRepository;
@@ -53,7 +54,8 @@ public class MealServiceImpl implements MealService {
         mealRepository.save(Meal.builder()
                 .mealType(MealType.valueOf(mealCreateReq.getType()))
                 .area(areaRepository.findByName(mealCreateReq.getArea()).orElseThrow(NotFoundAreaException::new))
-                .week(weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealCreateReq.getOfferedAt(), mealCreateReq.getOfferedAt()).orElseThrow(NotFoundAreaException::new))
+                .week(weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealCreateReq.getOfferedAt(), mealCreateReq.getOfferedAt()).orElseThrow(
+                    NotFoundWeekException::new))
                 .offeredAt(mealCreateReq.getOfferedAt())
                 .statusType(StatusType.valueOf(mealCreateReq.getStatus()))
                 .menus(mealCreateReq.getMeals())
