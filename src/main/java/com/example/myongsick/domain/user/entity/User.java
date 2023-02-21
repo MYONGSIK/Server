@@ -1,7 +1,7 @@
-package com.example.myongsick.domain.user;
+package com.example.myongsick.domain.user.entity;
 
 import com.example.myongsick.domain.review.entity.Review;
-import com.example.myongsick.domain.v2.Scrap;
+import com.example.myongsick.domain.scrap.entity.Scrap;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
+@Table(name = "user")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
@@ -39,5 +41,9 @@ public class User {
   }
   public void addReview(Review review) {
     this.reviewList.add(review);
+  }
+
+  public void addScrap(Scrap scrap) {
+    this.scrapList.add(scrap);
   }
 }

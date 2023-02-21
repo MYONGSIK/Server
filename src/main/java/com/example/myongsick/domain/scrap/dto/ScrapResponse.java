@@ -1,6 +1,6 @@
 package com.example.myongsick.domain.scrap.dto;
 
-import com.example.myongsick.domain.v2.Scrap;
+import com.example.myongsick.domain.scrap.entity.Scrap;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,11 +16,11 @@ public class ScrapResponse {
 
   private Long id;
   private String storeId;
-  private int scrapCnt; // store 별로 scarp 된 개수
+
   public static ScrapResponse toDto(Scrap scrap) {
     return ScrapResponse.builder()
+        .id(scrap.getId())
         .storeId(scrap.getStoreId())
-        .scrapCnt(0)
         .build();
   }
 }
