@@ -27,10 +27,9 @@
     <img width="100%" height="45%" src="https://user-images.githubusercontent.com/53048655/204075791-956ef9fb-7fe9-4a74-a65b-8ea31ca23178.png">
     
 <h3>CICD Process</h3>
-<img width="100%" height="45%" src="https://user-images.githubusercontent.com/53048655/204076285-9c2831e9-7c84-4000-a736-96b76d979b82.png">
+<img width="100%" height="45%" src="https://user-images.githubusercontent.com/61505572/220684641-9b041a02-447d-47e5-812b-76d457da5689.png">
   
 <h3>Infra Structure</h3>
-  <img width="100%" height="45%" src="https://user-images.githubusercontent.com/53048655/204076273-fd9504cf-73b2-476f-8530-2f4a013a7589.png">
-
+  <img width="100%" height="45%" src="https://user-images.githubusercontent.com/61505572/220687135-a6f83cba-35cd-4895-a72e-ef29f5f4a3a7.png">
 
 
