@@ -1,4 +1,4 @@
-package com.example.myongsick.domain.Meal.dto.request;
+package com.example.myongsick.domain.meal.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

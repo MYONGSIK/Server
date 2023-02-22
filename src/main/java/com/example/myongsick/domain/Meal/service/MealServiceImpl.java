@@ -1,19 +1,20 @@
-package com.example.myongsick.domain.Meal.service;
+package com.example.myongsick.domain.meal.service;
 
-import com.example.myongsick.domain.Meal.repository.AreaRepository;
+import com.example.myongsick.domain.meal.exception.excute.NotFoundWeekException;
+import com.example.myongsick.domain.meal.repository.AreaRepository;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.food.repository.WeekRepository;
-import com.example.myongsick.domain.Meal.entity.Meal;
-import com.example.myongsick.domain.Meal.dto.request.MealCreateReq;
-import com.example.myongsick.domain.Meal.dto.request.MealNotRegisterReq;
-import com.example.myongsick.domain.Meal.dto.response.MealResponse;
-import com.example.myongsick.domain.Meal.entity.Area;
-import com.example.myongsick.domain.Meal.entity.MealType;
-import com.example.myongsick.domain.Meal.entity.StatusType;
-import com.example.myongsick.domain.Meal.exception.excute.AlreadyAreaException;
-import com.example.myongsick.domain.Meal.exception.excute.NotFoundAreaException;
-import com.example.myongsick.domain.Meal.exception.excute.NotOperatedException;
-import com.example.myongsick.domain.Meal.repository.MealRepository;
+import com.example.myongsick.domain.meal.entity.Meal;
+import com.example.myongsick.domain.meal.dto.request.MealCreateReq;
+import com.example.myongsick.domain.meal.dto.request.MealNotRegisterReq;
+import com.example.myongsick.domain.meal.dto.response.MealResponse;
+import com.example.myongsick.domain.meal.entity.Area;
+import com.example.myongsick.domain.meal.entity.MealType;
+import com.example.myongsick.domain.meal.entity.StatusType;
+import com.example.myongsick.domain.meal.exception.excute.AlreadyAreaException;
+import com.example.myongsick.domain.meal.exception.excute.NotFoundAreaException;
+import com.example.myongsick.domain.meal.exception.excute.NotOperatedException;
+import com.example.myongsick.domain.meal.repository.MealRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,7 +54,8 @@ public class MealServiceImpl implements MealService {
         mealRepository.save(Meal.builder()
                 .mealType(MealType.valueOf(mealCreateReq.getType()))
                 .area(areaRepository.findByName(mealCreateReq.getArea()).orElseThrow(NotFoundAreaException::new))
-                .week(weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealCreateReq.getOfferedAt(), mealCreateReq.getOfferedAt()).orElseThrow(NotFoundAreaException::new))
+                .week(weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealCreateReq.getOfferedAt(), mealCreateReq.getOfferedAt()).orElseThrow(
+                    NotFoundWeekException::new))
                 .offeredAt(mealCreateReq.getOfferedAt())
                 .statusType(StatusType.valueOf(mealCreateReq.getStatus()))
                 .menus(mealCreateReq.getMeals())

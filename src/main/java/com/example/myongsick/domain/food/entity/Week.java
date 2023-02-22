@@ -1,6 +1,6 @@
 package com.example.myongsick.domain.food.entity;
 
-import com.example.myongsick.domain.Meal.entity.Meal;
+import com.example.myongsick.domain.meal.entity.Meal;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;

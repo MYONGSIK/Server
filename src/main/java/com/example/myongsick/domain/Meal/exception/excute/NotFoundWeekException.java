@@ -1,9 +1,8 @@
-package com.example.myongsick.domain.Meal.exception.excute;
+package com.example.myongsick.domain.meal.exception.excute;
 
+import static com.example.myongsick.domain.meal.exception.MealExceptionEnum.NOT_FOUND_WEEK;
 
-import com.example.myongsick.domain.Meal.exception.MealException;
-
-import static com.example.myongsick.domain.Meal.exception.MealExceptionEnum.NOT_FOUND_WEEK;
+import com.example.myongsick.domain.meal.exception.MealException;
 
 public class NotFoundWeekException extends MealException {
     public NotFoundWeekException() {

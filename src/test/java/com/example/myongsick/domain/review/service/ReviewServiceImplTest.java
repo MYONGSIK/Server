@@ -1,16 +1,16 @@
 package com.example.myongsick.domain.review.service;
 
-import com.example.myongsick.domain.Meal.entity.Area;
-import com.example.myongsick.domain.Meal.entity.Meal;
-import com.example.myongsick.domain.Meal.entity.MealType;
-import com.example.myongsick.domain.Meal.repository.MealRepository;
+import com.example.myongsick.domain.meal.entity.Area;
+import com.example.myongsick.domain.meal.entity.Meal;
+import com.example.myongsick.domain.meal.entity.MealType;
+import com.example.myongsick.domain.meal.repository.MealRepository;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;
 import com.example.myongsick.domain.review.entity.Review;
 import com.example.myongsick.domain.review.repository.ReviewRepository;
-import com.example.myongsick.domain.user.User;
-import com.example.myongsick.domain.user.UserRepository;
+import com.example.myongsick.domain.user.entity.User;
+import com.example.myongsick.domain.user.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

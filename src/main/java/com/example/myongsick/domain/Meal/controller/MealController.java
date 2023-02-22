@@ -1,10 +1,10 @@
-package com.example.myongsick.domain.Meal.controller;
+package com.example.myongsick.domain.meal.controller;
 
 
-import com.example.myongsick.domain.Meal.dto.request.MealCreateReq;
-import com.example.myongsick.domain.Meal.dto.request.MealNotRegisterReq;
-import com.example.myongsick.domain.Meal.dto.response.MealResponse;
-import com.example.myongsick.domain.Meal.service.MealService;
+import com.example.myongsick.domain.meal.dto.request.MealCreateReq;
+import com.example.myongsick.domain.meal.dto.request.MealNotRegisterReq;
+import com.example.myongsick.domain.meal.dto.response.MealResponse;
+import com.example.myongsick.domain.meal.service.MealService;
 import com.example.myongsick.global.object.ApplicationResponse;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

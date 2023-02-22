@@ -1,4 +1,4 @@
-package com.example.myongsick.domain.Meal.exception;
+package com.example.myongsick.domain.meal.exception;
 
 import com.example.myongsick.global.exception.ApplicationException;
 import org.springframework.http.HttpStatus;

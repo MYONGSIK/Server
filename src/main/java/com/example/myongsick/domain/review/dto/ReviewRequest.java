@@ -1,8 +1,8 @@
 package com.example.myongsick.domain.review.dto;
 
-import com.example.myongsick.domain.Meal.entity.Meal;
+import com.example.myongsick.domain.meal.entity.Meal;
 import com.example.myongsick.domain.review.entity.Review;
-import com.example.myongsick.domain.user.User;
+import com.example.myongsick.domain.user.entity.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.NotBlank;
@@ -26,7 +26,6 @@ public class ReviewRequest {
 
   @ApiModelProperty(value = "식사 ID", required = true, dataType = "number")
   @NotNull(message = "식사 ID를 입력해주세요")
-  @NotBlank(message = "식사 ID를 입력해주세요")
   private Long mealId;
 
   @ApiModelProperty(value = "식사 리뷰", required = true, dataType = "String")

@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @ApiModel(description = "리뷰 응답 객체")
 public class ReviewResponse {
 
+  private Long reviewId;
   private String writerId;
   private Long mealId;
   private String content;
@@ -23,6 +24,7 @@ public class ReviewResponse {
 
   public static ReviewResponse toDto(Review review) {
     return ReviewResponse.builder()
+        .reviewId(review.getId())
         .writerId(review.getUser().getPhoneId())
         .mealId(review.getMeal().getId())
         .content(review.getContent())
