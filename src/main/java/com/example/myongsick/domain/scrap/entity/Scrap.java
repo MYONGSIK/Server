@@ -27,7 +27,7 @@ public class Scrap {
   private String storeId;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id")
+  @JoinColumn(name = "user_id")
   private User user;
 
   @Builder
