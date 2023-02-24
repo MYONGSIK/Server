@@ -1,8 +1,8 @@
 package com.example.myongsick.domain.review.entity;
 
-import com.example.myongsick.domain.user.entity.User;
 import com.example.myongsick.domain.meal.entity.Meal;
-import java.time.LocalDate;
+import com.example.myongsick.domain.user.entity.User;
+import com.example.myongsick.global.entity.BaseEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,13 +16,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Review {
+public class Review extends BaseEntity {
 
   @Id @Column(name = "review_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,19 +28,12 @@ public class Review {
 
   private String content;
 
-  @CreatedDate
-  @Column(updatable = false)
-  private LocalDate createdAt;
-
-  @LastModifiedDate
-  private LocalDate updatedAt;
-
   @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "meal_id")
   private Meal meal;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id")
+  @JoinColumn(name = "user_id")
   private User user;
 
   @Builder
