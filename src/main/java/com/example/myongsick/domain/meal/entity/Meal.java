@@ -74,4 +74,18 @@ public class Meal {
     this.week = week;
     week.addMeal(this);
   }
+
+  public void addLove(){
+    this.love++;
+  }
+  public void reduceLove(){
+    this.love--;
+  }
+  public void addHate(){
+    this.hate++;
+  }
+  public void reduceHate(){
+    this.hate--;
+  }
+
 }
