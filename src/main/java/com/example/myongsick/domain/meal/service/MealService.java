@@ -2,6 +2,7 @@ package com.example.myongsick.domain.meal.service;
 
 
 import com.example.myongsick.domain.meal.dto.request.MealCreateReq;
+import com.example.myongsick.domain.meal.dto.request.MealEvaluateReq;
 import com.example.myongsick.domain.meal.dto.request.MealNotRegisterReq;
 import com.example.myongsick.domain.meal.dto.response.MealResponse;
 
@@ -20,4 +21,5 @@ public interface MealService {
 
     Boolean notRegisterMeal(MealNotRegisterReq mealNotRegisterReq);
 
+    Boolean evaluate(MealEvaluateReq mealEvaluateReq);
 }

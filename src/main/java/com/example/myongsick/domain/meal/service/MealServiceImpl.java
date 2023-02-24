@@ -1,19 +1,14 @@
 package com.example.myongsick.domain.meal.service;
 
-import com.example.myongsick.domain.meal.exception.excute.NotFoundWeekException;
+import com.example.myongsick.domain.meal.dto.request.MealEvaluateReq;
+import com.example.myongsick.domain.meal.entity.*;
+import com.example.myongsick.domain.meal.exception.excute.*;
 import com.example.myongsick.domain.meal.repository.AreaRepository;
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.food.repository.WeekRepository;
-import com.example.myongsick.domain.meal.entity.Meal;
 import com.example.myongsick.domain.meal.dto.request.MealCreateReq;
 import com.example.myongsick.domain.meal.dto.request.MealNotRegisterReq;
 import com.example.myongsick.domain.meal.dto.response.MealResponse;
-import com.example.myongsick.domain.meal.entity.Area;
-import com.example.myongsick.domain.meal.entity.MealType;
-import com.example.myongsick.domain.meal.entity.StatusType;
-import com.example.myongsick.domain.meal.exception.excute.AlreadyAreaException;
-import com.example.myongsick.domain.meal.exception.excute.NotFoundAreaException;
-import com.example.myongsick.domain.meal.exception.excute.NotOperatedException;
 import com.example.myongsick.domain.meal.repository.MealRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -119,6 +114,21 @@ public class MealServiceImpl implements MealService {
         }
         mealRepository.saveAll(meals);
         return null;
+    }
+
+    @Override
+    @Transactional
+    public Boolean evaluate(MealEvaluateReq mealEvaluateReq) {
+        Meal meal = mealRepository.findById(mealEvaluateReq.getMealId()).orElseThrow(NotfoundMealException::new);
+        if (mealEvaluateReq.getMealEvaluate().equals(MealEvaluate.LOVE)){
+            if (mealEvaluateReq.getCalculation().equals("plus")) meal.addLove();
+            if (mealEvaluateReq.getCalculation().equals("minus")) meal.reduceLove();
+        }
+        if (mealEvaluateReq.getMealEvaluate().equals(MealEvaluate.HATE)){
+            if (mealEvaluateReq.getCalculation().equals("plus")) meal.addHate();
+            if (mealEvaluateReq.getCalculation().equals("minus")) meal.reduceHate();
+        }
+        return true;
     }
 
 }

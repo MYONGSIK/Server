@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @ApiModel(description = "주 단위 음식 조회")
 public class MealResponse {
 
+    private Long mealId;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDate toDay;
     private MealType mealType;
@@ -29,8 +30,8 @@ public class MealResponse {
     private List<String> meals;
 
     public static List<MealResponse> toEntity(List<Meal> meals) {
-
         return meals.stream().map(meal -> MealResponse.builder()
+                .mealId(meal.getId())
                 .toDay(meal.getOfferedAt())
                 .statusType(meal.getStatusType())
                 .mealType(meal.getMealType())
