@@ -2,6 +2,7 @@ package com.example.myongsick.domain.meal.controller;
 
 
 import com.example.myongsick.domain.meal.dto.request.MealCreateReq;
+import com.example.myongsick.domain.meal.dto.request.MealEvaluateReq;
 import com.example.myongsick.domain.meal.dto.request.MealNotRegisterReq;
 import com.example.myongsick.domain.meal.dto.response.MealResponse;
 import com.example.myongsick.domain.meal.service.MealService;
@@ -71,4 +72,9 @@ public class MealController {
         return ApplicationResponse.ok(mealService.notRegisterMeal(mealNotRegisterReq));
     }
 
+    @PostMapping("/evaluate")
+    @ApiOperation(value = "해당 식단에 대해서 좋아요/싫어요를 남깁니다.")
+    public ApplicationResponse<Boolean> evaluate(@RequestBody @Valid MealEvaluateReq mealEvaluateReq){
+        return ApplicationResponse.ok(mealService.evaluate(mealEvaluateReq));
+    }
 }
