@@ -39,7 +39,7 @@ public class ReviewController {
     return ApplicationResponse.ok(reviewService.getReview(reviewId));
   }
 
-  @PostMapping
+  @PostMapping(produces = "application/json")
   @ApiOperation(value = "리뷰 생성"
       + " ( 리뷰 생성 시에는 user 등록이 선행되어야 합니다. "
       + "writerId 에는 user 등록에 사용된 phoneId를 입력해주세요. )"

@@ -11,8 +11,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class UserRequest {
+//  @ApiModelProperty(required = true, dataType = "String")
   @NotNull
   @NotBlank
-  @ApiModelProperty(required = true, dataType = "String")
   private String phoneId;
 }
