@@ -1,7 +1,5 @@
 package com.example.myongsick.domain.review.service;
 
-import com.example.myongsick.domain.meal.entity.Meal;
-import com.example.myongsick.domain.meal.repository.MealRepository;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;
 import com.example.myongsick.domain.review.entity.Review;
@@ -22,7 +20,6 @@ public class ReviewServiceImpl implements ReviewService{
 
   private final ReviewRepository reviewRepository;
   private final UserRepository userRepository;
-  private final MealRepository mealRepository;
 
   @Override
   public Page<ReviewResponse> getReviewLists(Pageable pageable) {
@@ -38,9 +35,8 @@ public class ReviewServiceImpl implements ReviewService{
   @Override
   @Transactional
   public ReviewResponse createReview(ReviewRequest request) {
-    User user = userRepository.findByPhoneId(request.getWriterId()).get();
-    Meal meal = mealRepository.findById(request.getMealId()).get();
-    Review review = reviewRepository.save(request.toEntity(user, meal, request.getContent()));
+    User user = userRepository.findByPhoneId(request.getWriterId()).orElseThrow();
+    Review review = reviewRepository.save(request.toEntity(user, request.getRegisteredAt(), request.getContent()));
     return ReviewResponse.toDto(review);
   }
 }
