@@ -12,6 +12,9 @@
 :cupid: <b>찜꽁리스트</b> : 맛있었던 곳을 찜꽁리스트에 저장할 수 있습니다.<br>
 
 <br><br>
+ver 1.0 명지대학교 인문캠퍼스 MCC식당, 주변 식당 정보 제
+
+<br><br>
 ## 📌 Screen Shot
 <p align="center">
 <img src="https://user-images.githubusercontent.com/83231344/200797384-f4c5b57f-06e7-4c8b-95e7-3725db07f48c.png" width="18%" height="30%">
