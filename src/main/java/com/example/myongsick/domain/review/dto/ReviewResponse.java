@@ -17,7 +17,6 @@ public class ReviewResponse {
 
   private Long reviewId;
   private String writerId;
-  private Long mealId;
   private String content;
   private LocalDate createdAt;
   private LocalDate updatedAt;
@@ -26,7 +25,6 @@ public class ReviewResponse {
     return ReviewResponse.builder()
         .reviewId(review.getId())
         .writerId(review.getUser().getPhoneId())
-        .mealId(review.getMeal().getId())
         .content(review.getContent())
         .createdAt(review.getCreatedAt())
         .updatedAt(review.getUpdatedAt())

@@ -62,7 +62,7 @@ class ReviewServiceImplTest {
     User user = createUser();
     Meal meal = createMeal();
     ReviewRequest request = ReviewRequest.builder()
-        .mealId(1L)
+        .registeredAt("2023-03-01")
         .writerId(user.getPhoneId())
         .content("맛있어요")
         .build();
@@ -82,7 +82,6 @@ class ReviewServiceImplTest {
   Review createReview(String content){
     return Review.builder()
         .user(createUser())
-        .meal(createMeal())
         .content(content)
         .build();
   }

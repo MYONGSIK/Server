@@ -1,6 +1,5 @@
 package com.example.myongsick.domain.review.entity;
 
-import com.example.myongsick.domain.meal.entity.Meal;
 import com.example.myongsick.domain.user.entity.User;
 import com.example.myongsick.global.entity.BaseEntity;
 import javax.persistence.Column;
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,21 +24,19 @@ public class Review extends BaseEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String content;
+  private String registeredAt;
 
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "meal_id")
-  private Meal meal;
+  private String content;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
   private User user;
 
   @Builder
-  public Review(User user, String content, Meal meal) {
+  public Review(User user, String content, String registeredAt) {
     this.user = user;
+    this.registeredAt = registeredAt;
     this.content = content;
-    this.meal = meal;
     this.addUser(user);
   }
 
