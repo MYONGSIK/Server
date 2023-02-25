@@ -23,7 +23,7 @@ public class ReviewRequest {
   @NotBlank(message = "유저 핸드폰 ID를 입력해주세요")
   private String writerId;
 
-  @ApiModelProperty(value = "리뷰 날짜", required = true, dataType = "String(yyyy-MM-dd)")
+  @ApiModelProperty(value = "리뷰 날짜", required = true, dataType = "String")
   @NotNull(message = "리뷰를 남길 날짜를 입력해주세요")
   @NotBlank(message = "리뷰를 남길 날짜를 입력해주세요")
   private String registeredAt;
