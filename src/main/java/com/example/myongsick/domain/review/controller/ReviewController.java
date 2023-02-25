@@ -42,7 +42,8 @@ public class ReviewController {
   @PostMapping
   @ApiOperation(value = "리뷰 생성"
       + " ( 리뷰 생성 시에는 user 등록이 선행되어야 합니다. "
-      + "writerId 에는 user 등록에 사용된 phoneId를 입력해주세요. )")
+      + "writerId 에는 user 등록에 사용된 phoneId를 입력해주세요. )"
+      + " 리뷰를 작성하기 원하는 날짜 형식은 yyyy-MM-dd 입니다. ")
   public ApplicationResponse<ReviewResponse> createReview(
       @RequestBody @Valid ReviewRequest request
   ){

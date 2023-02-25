@@ -6,6 +6,7 @@ import com.example.myongsick.domain.review.entity.Review;
 import com.example.myongsick.domain.review.exception.ReviewNotFoundException;
 import com.example.myongsick.domain.review.repository.ReviewRepository;
 import com.example.myongsick.domain.user.entity.User;
+import com.example.myongsick.domain.user.exception.NotFoundUserException;
 import com.example.myongsick.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -35,7 +36,8 @@ public class ReviewServiceImpl implements ReviewService{
   @Override
   @Transactional
   public ReviewResponse createReview(ReviewRequest request) {
-    User user = userRepository.findByPhoneId(request.getWriterId()).orElseThrow();
+    User user = userRepository.findByPhoneId(request.getWriterId()).orElseThrow(
+        NotFoundUserException::new);
     Review review = reviewRepository.save(request.toEntity(user, request.getRegisteredAt(), request.getContent()));
     return ReviewResponse.toDto(review);
   }
