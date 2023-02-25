@@ -15,16 +15,6 @@
 ver 1.0 명지대학교 인문캠퍼스 MCC식당, 주변 식당 정보 제
 
 <br><br>
-## 📌 Screen Shot
-<p align="center">
-<img src="https://user-images.githubusercontent.com/83231344/200797384-f4c5b57f-06e7-4c8b-95e7-3725db07f48c.png" width="18%" height="30%">
-<img src="https://user-images.githubusercontent.com/83231344/200797690-a4277918-8f4f-4061-92a8-0bf5383b2433.png" width="18%" height="30%">
-<img src="https://user-images.githubusercontent.com/83231344/200797713-c26f45df-8944-4de3-b174-8fa09e16f2e6.png" width="18%" height="30%">
-<img src="https://user-images.githubusercontent.com/83231344/200797734-93456f9c-7331-40d0-9684-6540123c56f2.png" width="18%" height="30%">
-<img src="https://user-images.githubusercontent.com/83231344/200797788-a01b6b77-0125-41de-98b0-64dfe9f95c4f.png" width="18%" height="30%">
-</p>
-
-<br><br>
 ## 📌 Server Architecture
 <h3>Skill Stack</h3>
     <img width="100%" height="45%" src="https://user-images.githubusercontent.com/53048655/204075791-956ef9fb-7fe9-4a74-a65b-8ea31ca23178.png">
