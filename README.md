@@ -19,6 +19,9 @@
 
 <br><br>
 ## 📌 Server Architecture
+<h3>ERD</h3>
+<img width="100%" height="45%" src="https://user-images.githubusercontent.com/53048655/221419963-5304637c-c8d7-4e6e-942a-e19ae43c22fa.png">
+
 <h3>CICD Process</h3>
 <img width="100%" height="45%" src="https://user-images.githubusercontent.com/61505572/220684641-9b041a02-447d-47e5-812b-76d457da5689.png">
   
