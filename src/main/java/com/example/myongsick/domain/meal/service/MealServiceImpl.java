@@ -110,10 +110,9 @@ public class MealServiceImpl implements MealService {
                     );
                 }
             }
-
         }
         mealRepository.saveAll(meals);
-        return null;
+        return true;
     }
 
     @Override
@@ -131,4 +130,19 @@ public class MealServiceImpl implements MealService {
         return true;
     }
 
+    @Override
+    public List<List<MealResponse>> getWeekMealAndroid(String area) {
+        Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(LocalDate.now(), LocalDate.now()).get();
+        Area areaEntity = areaRepository.findByName(area).get();
+        List<List<MealResponse>> mealResponses = new ArrayList<>();
+        //하루씩 불러오기
+        for(int i = 0; i < 5; i++){
+            LocalDate localDate = week.getStartDay().plusDays(i);
+            List<Meal> byAreaAndWeek = mealRepository.findByAreaAndAndOfferedAt(areaEntity, localDate);
+            for (int j = 0; j < byAreaAndWeek.size(); j++){
+                mealResponses.add((MealResponse.toEntity(byAreaAndWeek)));
+            }
+        }
+        return mealResponses;
+    }
 }

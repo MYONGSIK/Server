@@ -77,4 +77,15 @@ public class MealController {
     public ApplicationResponse<Boolean> evaluate(@RequestBody @Valid MealEvaluateReq mealEvaluateReq){
         return ApplicationResponse.ok(mealService.evaluate(mealEvaluateReq));
     }
+
+    /**
+     * 음식 주단위 조회
+     */
+    @GetMapping("/week/android/{area}")
+    @ApiOperation(value = "음식 주 단위 조회")
+    public ApplicationResponse<List<List<MealResponse>>> getWeekMealAndroid(@PathVariable String area){
+        return ApplicationResponse.ok(mealService.getWeekMealAndroid(area));
+    }
+
+
 }

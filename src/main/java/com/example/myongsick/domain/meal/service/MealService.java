@@ -22,4 +22,6 @@ public interface MealService {
     Boolean notRegisterMeal(MealNotRegisterReq mealNotRegisterReq);
 
     Boolean evaluate(MealEvaluateReq mealEvaluateReq);
+
+    List<List<MealResponse>> getWeekMealAndroid(String area);
 }
