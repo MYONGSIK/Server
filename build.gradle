@@ -39,6 +39,11 @@ dependencies {
 
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
     implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.4'
+
+    //prometheus
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-core'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 }
 
 tasks.named('test') {
