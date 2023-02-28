@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 @RequiredArgsConstructor
 @Getter
 public enum UserExceptionEnum {
-  ALREADY_USER("U0000", HttpStatus.BAD_REQUEST, "이미 등록된 유저입니다."),
+  ALREADY_USER("U0000", HttpStatus.CONFLICT, "이미 등록된 유저입니다."),
   NOT_FOUND_USER("U0001", HttpStatus.NOT_FOUND, "유저를 찾을 수 없습니다."),
   ;
 
