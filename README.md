@@ -17,6 +17,8 @@
 
 [[CICD] Jenkins에서 Github Action으로 변경한 이유](https://github.com/MYONGSIK/Server/wiki/%5BCICD%5D-Jenkins%EC%97%90%EC%84%9C-Github-Action%EC%9C%BC%EB%A1%9C-%EB%B3%80%EA%B2%BD%ED%95%9C-%EC%9D%B4%EC%9C%A0)
 
+[[INFRA] 안정적 운영을 위한 인프라 구성 변경](https://github.com/MYONGSIK/Server/wiki/%5BINFRA%5D-%EC%95%88%EC%A0%95%EC%A0%81-%EC%9A%B4%EC%98%81%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%9D%B8%ED%94%84%EB%9D%BC-%EA%B5%AC%EC%84%B1-%EB%B3%80%EA%B2%BD)
+
 <br><br>
 ## 📌 Server Architecture
 <h3>ERD</h3>
