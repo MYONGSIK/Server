@@ -11,7 +11,7 @@
 <br>
 
 ## 📌 설계에 대한 변경점
-[[DB] VER1 설계에 대한 고찰 및 오류 인정 개선 방향](https://github.com/MYONGSIK/Server/wiki/%5BDB%5D-VER1-%EC%84%A4%EA%B3%84%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-%EB%B0%8F-%EC%98%A4%EB%A5%98-%EC%9D%B8%EC%A0%95-%EA%B0%9C%EC%84%A0-%EB%B0%A9%ED%96%A5)
+[[DB] VER1 설계에 대한 고찰 및 오류 인정 개선 방향](https://github.com/MYONGSIK/Server/wiki/%5BDB%5D-VER1-%EC%84%A4%EA%B3%84%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-,-%EC%98%A4%EB%A5%98-%EC%9D%B8%EC%A0%95,-%EA%B0%9C%EC%84%A0-%EB%B0%A9%ED%96%A5)
 
 [[DB] VER2 설계에 대한 고민](https://github.com/MYONGSIK/Server/wiki/%5BDB%5D-VER2-%EC%84%A4%EA%B3%84%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EB%AF%BC)
 
