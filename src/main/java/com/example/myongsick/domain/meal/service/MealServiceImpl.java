@@ -31,7 +31,7 @@ public class MealServiceImpl implements MealService {
     @Override
     public List<MealResponse> getWeekFoods(String area) {
         Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(LocalDate.now(), LocalDate.now()).get();
-        return MealResponse.toEntity(mealRepository.findByWeekAndArea(week, areaRepository.findByName(area).get()));
+        return MealResponse.toEntity(mealRepository.findByWeekAndAreaOrderByArea(week, areaRepository.findByName(area).get()));
     }
 
     @Override
@@ -83,36 +83,28 @@ public class MealServiceImpl implements MealService {
         List<Meal> meals = new ArrayList<>();
         for(int i = 0; i < 5; i++){
             Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealNotRegisterReq.getStartedAt().plusDays(i), mealNotRegisterReq.getStartedAt().plusDays(i)).orElseThrow(NotFoundAreaException::new);
-            if (area.getName().equals("MCC식당")){
-                for(int j = 0; j < MealType.values().length; j++){
-                    meals.add(
-                            Meal.builder()
-                                    .area(area)
-                                    .week(week)
-                                    .mealType(MealType.values()[j])
-                                    .menus(List.of("","등록된 식단내용이(가) 없습니다.","","","",""))
-                                    .offeredAt(mealNotRegisterReq.getStartedAt().plusDays(i))
-                                    .statusType(StatusType.OPEN)
-                                    .build()
-                    );
+            for(int j = 0; j < MealType.values().length; j++){
+                if (!area.getName().equals("MCC식당") && MealType.values()[j].equals(MealType.LUNCH_B)){
+                    continue;
                 }
-            }else{
-                for(int j = 0; j < MealType.values().length-1; j++){
-                    meals.add(
-                            Meal.builder()
-                                    .area(area)
-                                    .week(week)
-                                    .mealType(MealType.values()[j])
-                                    .menus(List.of("","등록된 식단내용이(가) 없습니다.","","","",""))
-                                    .offeredAt(mealNotRegisterReq.getStartedAt().plusDays(i))
-                                    .statusType(StatusType.OPEN)
-                                    .build()
-                    );
-                }
+                addMeals(mealNotRegisterReq, area, meals, i, week, j);
             }
         }
         mealRepository.saveAll(meals);
         return true;
+    }
+
+    private void addMeals(MealNotRegisterReq mealNotRegisterReq, Area area, List<Meal> meals, int i, Week week, int j) {
+        meals.add(
+                Meal.builder()
+                        .area(area)
+                        .week(week)
+                        .mealType(MealType.values()[j])
+                        .menus(List.of("","등록된 식단내용이(가) 없습니다.","","","",""))
+                        .offeredAt(mealNotRegisterReq.getStartedAt().plusDays(i))
+                        .statusType(StatusType.OPEN)
+                        .build()
+        );
     }
 
     @Override
