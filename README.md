@@ -11,11 +11,13 @@
 <br>
 
 ## 📌 설계에 대한 변경점
-[[DB] VER1 설계에 대한 고찰 및 오류 인정 개선 방향](https://github.com/MYONGSIK/Server/wiki/%5BDB%5D-VER1-%EC%84%A4%EA%B3%84%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-%EB%B0%8F-%EC%98%A4%EB%A5%98-%EC%9D%B8%EC%A0%95-%EA%B0%9C%EC%84%A0-%EB%B0%A9%ED%96%A5)
+[[DB] VER1 설계에 대한 고찰 및 오류 인정 개선 방향](https://github.com/MYONGSIK/Server/wiki/%5BDB%5D-VER1-%EC%84%A4%EA%B3%84%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-,-%EC%98%A4%EB%A5%98-%EC%9D%B8%EC%A0%95,-%EA%B0%9C%EC%84%A0-%EB%B0%A9%ED%96%A5)
 
 [[DB] VER2 설계에 대한 고민](https://github.com/MYONGSIK/Server/wiki/%5BDB%5D-VER2-%EC%84%A4%EA%B3%84%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EB%AF%BC)
 
 [[CICD] Jenkins에서 Github Action으로 변경한 이유](https://github.com/MYONGSIK/Server/wiki/%5BCICD%5D-Jenkins%EC%97%90%EC%84%9C-Github-Action%EC%9C%BC%EB%A1%9C-%EB%B3%80%EA%B2%BD%ED%95%9C-%EC%9D%B4%EC%9C%A0)
+
+[[INFRA] 안정적 운영을 위한 인프라 구성 변경](https://github.com/MYONGSIK/Server/wiki/%5BINFRA%5D-%EC%95%88%EC%A0%95%EC%A0%81-%EC%9A%B4%EC%98%81%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%9D%B8%ED%94%84%EB%9D%BC-%EA%B5%AC%EC%84%B1-%EB%B3%80%EA%B2%BD)
 
 <br><br>
 ## 📌 Server Architecture

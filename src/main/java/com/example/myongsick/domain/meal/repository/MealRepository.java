@@ -13,6 +13,6 @@ import java.util.List;
 public interface MealRepository extends JpaRepository<Meal,Long> {
 
     List<Meal> findByOfferedAtAndArea(LocalDate toDay, Area area);
-    List<Meal> findByWeekAndArea(Week week, Area area);
+    List<Meal> findByWeekAndAreaOrderByArea(Week week, Area area);
     List<Meal> findByAreaAndAndOfferedAt(Area area, LocalDate localDate);
 }
