@@ -14,5 +14,5 @@ public interface ScrapService {
 
   void deleteScrap(Long scrapId);
 
-  Page<ScrapCountResponse> getScrapCount(Pageable pageable);
+  Page<ScrapCountResponse> getScrapCount(String campus, Pageable pageable);
 }

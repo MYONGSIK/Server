@@ -15,12 +15,24 @@ import lombok.NoArgsConstructor;
 public class ScrapResponse {
 
   private Long id;
-  private String storeId;
+  private String code;
+  private String name;
+  private String distance;
+  private String category;
+  private String address;
+  private String contact;
+  private String urlAddress;
 
   public static ScrapResponse toDto(Scrap scrap) {
     return ScrapResponse.builder()
         .id(scrap.getId())
-        .storeId(scrap.getStoreId())
+        .code(scrap.getStore().getCode())
+        .name(scrap.getStore().getName())
+        .distance(scrap.getStore().getDistance())
+        .category(scrap.getStore().getCategory())
+        .address(scrap.getStore().getAddress())
+        .contact(scrap.getStore().getContact())
+        .urlAddress(scrap.getStore().getUrlAddress())
         .build();
   }
 }

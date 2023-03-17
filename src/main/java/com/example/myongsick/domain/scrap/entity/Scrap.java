@@ -1,5 +1,7 @@
 package com.example.myongsick.domain.scrap.entity;
 
+import static javax.persistence.FetchType.LAZY;
+
 import com.example.myongsick.domain.food.entity.Week;
 import com.example.myongsick.domain.user.entity.User;
 import javax.persistence.Column;
@@ -24,20 +26,27 @@ public class Scrap {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String storeId;
+  @ManyToOne(fetch = LAZY)
+  @JoinColumn(name = "id")
+  private Store store;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = LAZY)
   @JoinColumn(name = "user_id")
   private User user;
 
   @Builder
-  public Scrap(String storeId, User user) {
-    this.storeId = storeId;
+  public Scrap(Store store, User user) {
+    this.addStore(store);
     this.addUser(user);
   }
 
   public void addUser(User user){
     this.user = user;
     user.addScrap(this);
+  }
+
+  public void addStore(Store store) {
+    this.store = store;
+    store.addScrap(this);
   }
 }
