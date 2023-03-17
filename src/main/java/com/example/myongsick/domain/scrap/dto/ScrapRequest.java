@@ -12,7 +12,31 @@ public class ScrapRequest {
 
   @NotNull @NotBlank
   @ApiModelProperty(required = true, dataType = "String")
-  private String storeId;
+  private String code;
+
+  @NotNull @NotBlank
+  @ApiModelProperty(required = true, dataType = "String")
+  private String name;
+
+  @NotNull @NotBlank
+  @ApiModelProperty(required = true, dataType = "String")
+  private String distance;
+
+  @NotNull @NotBlank
+  @ApiModelProperty(required = true, dataType = "String")
+  private String category;
+
+  @NotNull @NotBlank
+  @ApiModelProperty(required = true, dataType = "String")
+  private String address;
+
+  @NotNull @NotBlank
+  @ApiModelProperty(required = true, dataType = "String")
+  private String contact;
+
+  @NotNull @NotBlank
+  @ApiModelProperty(required = true, dataType = "String")
+  private String urlAddress;
 
   @NotNull @NotBlank
   @ApiModelProperty(required = true, dataType = "String")
