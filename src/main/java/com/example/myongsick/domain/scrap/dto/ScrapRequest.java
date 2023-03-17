@@ -41,4 +41,8 @@ public class ScrapRequest {
   @NotNull @NotBlank
   @ApiModelProperty(required = true, dataType = "String")
   private String phoneId;
+
+  @NotNull @NotBlank
+  @ApiModelProperty(required = true, dataType = "String")
+  private String campus;
 }

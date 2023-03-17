@@ -3,11 +3,11 @@ package com.example.myongsick.domain.scrap.service;
 import com.example.myongsick.domain.scrap.dto.ScrapCountResponse;
 import com.example.myongsick.domain.scrap.dto.ScrapRequest;
 import com.example.myongsick.domain.scrap.dto.ScrapResponse;
+import com.example.myongsick.domain.scrap.entity.CampusType;
 import com.example.myongsick.domain.scrap.entity.Scrap;
 import com.example.myongsick.domain.scrap.entity.Store;
 import com.example.myongsick.domain.scrap.exception.AlreadyScrapException;
 import com.example.myongsick.domain.scrap.exception.NotFoundScrapException;
-import com.example.myongsick.domain.scrap.exception.ScrapException;
 import com.example.myongsick.domain.scrap.repository.ScrapRepository;
 import com.example.myongsick.domain.scrap.repository.StoreRepository;
 import com.example.myongsick.domain.user.entity.User;
@@ -52,7 +52,7 @@ public class ScrapServiceImpl implements ScrapService{
     else {
       Store store = Store.builder().code(request.getCode()).name(request.getName())
           .category(request.getCategory()).distance(request.getDistance()).address(request.getAddress())
-          .urlAddress(request.getUrlAddress()).contact(request.getContact()).build();
+          .urlAddress(request.getUrlAddress()).contact(request.getContact()).campus(CampusType.valueOf(request.getCampus())).build();
     return storeRepository.save(store);
     }
   }
@@ -64,8 +64,8 @@ public class ScrapServiceImpl implements ScrapService{
   }
 
   @Override
-  public Page<ScrapCountResponse> getScrapCount( Pageable pageable) {
+  public Page<ScrapCountResponse> getScrapCount(String campus, Pageable pageable) {
 
-    return scrapRepository.findAllCustom(pageable).map(ScrapCountResponse::toDto);
+    return scrapRepository.findAllCustom(campus, pageable).map(ScrapCountResponse::toDto);
   }
 }

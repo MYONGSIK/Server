@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,8 +55,9 @@ public class ScarpController {
   @GetMapping("/store")
   @ApiOperation(value = "가게별 담은 유저 수 조회")
   public ApplicationResponse<Page<ScrapCountResponse>> getScrapCount(
+      @Param("campus") String campus,
       Pageable pageable
   ) {
-    return ApplicationResponse.ok(scrapService.getScrapCount(pageable));
+    return ApplicationResponse.ok(scrapService.getScrapCount(campus, pageable));
   }
 }

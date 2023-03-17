@@ -11,16 +11,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface ScrapRepository extends JpaRepository<Scrap, Long> {
   Page<Scrap> findAllByUser(User user, Pageable pageable);
 
   Optional<Scrap> findByStoreAndUser(Store store, User user);
   @Query(nativeQuery = true,
-      value = "select a.id as storeId, b.code, b.name, b.category, b.address, b.contact, b.url_address, b.distance, count(a.id) as scrapCount\n"
+      value = "select a.id as storeId, b.code, b.name, b.category, b.address, b.contact, b.url_address as urlAddress, b.distance, count(a.id) as scrapCount\n"
           + "from scrap a join store b on a.id = b.id\n"
+          + "where b.campus = :campus\n"
           + "group by a.id",
       countQuery = "select count(id) as scrapCount from scrap "
   )
-  Page<CountResponse> findAllCustom(Pageable pageable);
+  Page<CountResponse> findAllCustom(@Param("campus") String campus, Pageable pageable);
 }

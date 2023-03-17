@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +31,8 @@ public class Store {
   private String address;
   private String contact;
   private String urlAddress;
+  @Enumerated(EnumType.STRING)
+  private CampusType campus;
 
   @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
   List<Scrap> scrapList = new ArrayList<>();
@@ -41,7 +45,8 @@ public class Store {
       String category,
       String address,
       String contact,
-      String urlAddress) {
+      String urlAddress,
+      CampusType campus) {
     this.code = code;
     this.name = name;
     this.category = category;
@@ -49,6 +54,7 @@ public class Store {
     this.address = address;
     this.contact = contact;
     this.urlAddress = urlAddress;
+    this.campus = campus;
   }
 
   public void addScrap(Scrap scrap) {
