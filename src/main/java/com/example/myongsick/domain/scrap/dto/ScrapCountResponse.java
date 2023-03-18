@@ -13,13 +13,27 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ScrapCountResponse {
 
-  private String storeId;
+  private Long storeId;
+  private String code;
+  private String name;
+  private String category;
+  private String address;
+  private String urlAddress;
+  private String distance;
+  private String contact;
   private int scrapCount;
 
   public static ScrapCountResponse toDto(CountResponse countResponse) {
     return ScrapCountResponse.builder()
         .storeId(countResponse.getStoreId())
+        .code(countResponse.getCode())
+        .name(countResponse.getName())
+        .category(countResponse.getCategory())
+        .address(countResponse.getAddress())
+        .urlAddress(countResponse.getUrlAddress())
+        .distance(countResponse.getDistance())
         .scrapCount(countResponse.getScrapCount())
+        .contact(countResponse.getContact())
         .build();
   }
 }
