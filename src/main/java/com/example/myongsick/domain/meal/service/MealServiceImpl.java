@@ -84,7 +84,7 @@ public class MealServiceImpl implements MealService {
         for(int i = 0; i < 5; i++){
             Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealNotRegisterReq.getStartedAt().plusDays(i), mealNotRegisterReq.getStartedAt().plusDays(i)).orElseThrow(NotFoundAreaException::new);
             for(int j = 0; j < MealType.values().length; j++){
-                if (!area.getName().equals("MCC식당") && MealType.values()[j].equals(MealType.LUNCH_B)){
+                if (!area.getName().equals("MCC식당") && !area.getName().equals("명진당식당") && MealType.values()[j].equals(MealType.LUNCH_B)){
                     continue;
                 }
                 addMeals(mealNotRegisterReq, area, meals, i, week, j);
