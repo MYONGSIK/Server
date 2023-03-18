@@ -20,6 +20,7 @@ public class ScrapCountResponse {
   private String address;
   private String urlAddress;
   private String distance;
+  private String contact;
   private int scrapCount;
 
   public static ScrapCountResponse toDto(CountResponse countResponse) {
@@ -32,6 +33,7 @@ public class ScrapCountResponse {
         .urlAddress(countResponse.getUrlAddress())
         .distance(countResponse.getDistance())
         .scrapCount(countResponse.getScrapCount())
+        .contact(countResponse.getContact())
         .build();
   }
 }

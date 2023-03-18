@@ -65,7 +65,6 @@ public class ScrapServiceImpl implements ScrapService{
 
   @Override
   public Page<ScrapCountResponse> getScrapCount(String campus, Pageable pageable) {
-
     return scrapRepository.findAllCustom(campus, pageable).map(ScrapCountResponse::toDto);
   }
 }
