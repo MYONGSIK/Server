@@ -16,6 +16,9 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/mongo_test
 
 jasypt:
   encryptor:
