@@ -3,7 +3,6 @@ package com.example.myongsick.domain.review.dto;
 import com.example.myongsick.domain.review.entity.Review;
 import com.example.myongsick.domain.user.entity.User;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
