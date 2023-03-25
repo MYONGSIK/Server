@@ -29,6 +29,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
 
+    // mongo
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
     implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.2.2'
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 

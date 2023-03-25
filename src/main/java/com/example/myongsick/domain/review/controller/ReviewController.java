@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.review.controller;
 
+import com.example.myongsick.domain.review.dto.ReviewReqDto;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;
 import com.example.myongsick.domain.review.service.ReviewService;
@@ -48,5 +49,17 @@ public class ReviewController {
       @RequestBody @Valid ReviewRequest request
   ){
     return ApplicationResponse.ok(reviewService.createReview(request));
+  }
+
+  @PostMapping("/area")
+  @ApiOperation(value = "리뷰 생성 with 식당명"
+      + " ( 리뷰 생성 시에는 user 등록이 선행되어야 합니다. "
+      + "writerId 에는 user 등록에 사용된 phoneId를 입력해주세요. )"
+      + " 리뷰를 작성하기 원하는 날짜 형식은 yyyy-MM-dd 입니다. "
+      + "areaName에는 디비와 동일한 식당명을 입력해주셔야 합니다.")
+  public ApplicationResponse<ReviewResponse> createReviewWithArea(
+      @RequestBody @Valid ReviewReqDto request
+  ){
+    return ApplicationResponse.ok(reviewService.createReviewWithArea(request));
   }
 }
