@@ -1,10 +1,17 @@
 package com.example.myongsick.global.config;
 
+import com.fasterxml.classmate.TypeResolver;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.TimeZone;
 import javax.annotation.PostConstruct;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
 import org.springframework.boot.actuate.autoconfigure.web.server.ManagementPortType;
@@ -20,10 +27,12 @@ import org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandl
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.data.domain.Page;
 import org.springframework.util.StringUtils;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.AlternateTypeRules;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -31,7 +40,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@RequiredArgsConstructor
 public class SwaggerConfig {
+    private final TypeResolver typeResolver;
 
     @PostConstruct
     public void start() {
@@ -41,6 +52,8 @@ public class SwaggerConfig {
     @Bean
     public Docket restAPI() {
         return new Docket(DocumentationType.SWAGGER_2)
+            .alternateTypeRules(AlternateTypeRules
+                .newRule(typeResolver.resolve(Pageable.class), typeResolver.resolve(Page.class)))
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.myongsick"))
@@ -74,5 +87,18 @@ public class SwaggerConfig {
     private boolean shouldRegisterLinksMapping(WebEndpointProperties webEndpointProperties, Environment environment, String basePath) {
         return webEndpointProperties.getDiscovery().isEnabled() && (StringUtils.hasText(basePath) || ManagementPortType.get(environment).equals(
             ManagementPortType.DIFFERENT));
+    }
+
+    @Getter @Setter
+    @ApiModel
+    static class Page {
+        @ApiModelProperty(value = "페이지 번호(0..N)")
+        private Integer page;
+
+        @ApiModelProperty(value = "페이지 크기", allowableValues = "range[0,100]")
+        private Integer size;
+
+        @ApiModelProperty(value = "정렬(사용법: 컬럼명,ASC|DESC)")
+        private List<String> sort;
     }
 }
