@@ -8,6 +8,6 @@ public interface CountResponse {
   String getAddress();
   String getContact();
   String getUrlAddress();
-  String getDistance();
+  Long getDistance();
   int getScrapCount();
 }
