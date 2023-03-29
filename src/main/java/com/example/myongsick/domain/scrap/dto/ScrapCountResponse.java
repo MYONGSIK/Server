@@ -19,7 +19,7 @@ public class ScrapCountResponse {
   private String category;
   private String address;
   private String urlAddress;
-  private Long distance;
+  private String distance;
   private String contact;
   private int scrapCount;
 
