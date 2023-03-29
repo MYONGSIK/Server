@@ -2,7 +2,7 @@
 
 
 # 명식이 - 명지대의 식사를 책임지다! 👀
-[![Java CD with Gradle](https://github.com/MYONGSIK/Server/actions/workflows/CD_Prod.yml/badge.svg)](https://github.com/MYONGSIK/Server/actions/workflows/CD_Prod.yml)
+[![Java CD with Gradle](https://github.com/MYONGSIK/Server/actions/workflows/CD_Prod.yml/badge.svg)](https://github.com/MYONGSIK/Server/actions/workflows/CD_Prod.yml) [![Java CI with Gradle](https://github.com/MYONGSIK/Server/actions/workflows/CI_Dev.yml/badge.svg)](https://github.com/MYONGSIK/Server/actions/workflows/CI_Dev.yml)
 
 ## 📌 Project Explanation 
 * 명지대학교 인문캠퍼스에 MCC관이 생기면서 학식의 인기가 급증하였습니다. 학생들은 메뉴를 알기 위해 다른 커뮤니티를 참조하거나, 월요일 아침에 직접 가서 정보를 알아야만 했습니다. 따라서 명식이는 명지대학교 학생들의 편의를 제공하고자, 인문캠퍼스의 학식 정보를 제공하고, 맛을 평가하는 서비스입니다.
@@ -37,7 +37,7 @@
 ## 📌 버전 정보
 ver 1.0 명지대학교 인문캠퍼스 MCC식당, 주변 식당 정보 제공
 
-ver 2.0 명지대학교 자연캠퍼스 교직원식당, 생활관 식당 정보 제공 추가
+ver 2.0 명지대학교 자연캠퍼스 교직원식당, 생활관 식당 정보 제공 추가, 맛집 리스트 조회 정렬 조건 추가
 
 
 
