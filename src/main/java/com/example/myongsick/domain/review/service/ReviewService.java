@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.review.service;
 
+import com.example.myongsick.domain.review.dto.ReviewReqDto;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;
 import org.springframework.data.domain.Page;
@@ -12,4 +13,6 @@ public interface ReviewService {
   ReviewResponse getReview(Long reviewId);
 
   ReviewResponse createReview(ReviewRequest request);
+
+  ReviewResponse createReviewWithArea(ReviewReqDto request);
 }

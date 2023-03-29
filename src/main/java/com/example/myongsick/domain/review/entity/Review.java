@@ -27,16 +27,23 @@ public class Review extends BaseEntity {
   private String registeredAt;
 
   private String content;
+  private String area;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
   private User user;
 
+
   @Builder
-  public Review(User user, String content, String registeredAt) {
+  public Review(
+      User user,
+      String content,
+      String registeredAt,
+      String area) {
     this.user = user;
     this.registeredAt = registeredAt;
     this.content = content;
+    this.area = area;
     this.addUser(user);
   }
 

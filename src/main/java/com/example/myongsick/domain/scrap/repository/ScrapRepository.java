@@ -18,9 +18,13 @@ public interface ScrapRepository extends JpaRepository<Scrap, Long> {
 
   Optional<Scrap> findByStoreAndUser(Store store, User user);
   @Query(nativeQuery = true,
-      value = "select a.id as storeId, b.code, b.name, b.category, b.address, b.contact, b.url_address as urlAddress, b.distance, count(a.id) as scrapCount\n"
-          + "from scrap a join store b on a.id = b.id\n"
-          + "where b.campus = :campus\n"
+//      value = "select a.id as storeId, b.code, b.name, b.category, b.address, b.contact, b.url_address as urlAddress, b.distance, count(a.id) as scrapCount\n"
+//          + "from scrap a join store b on a.id = b.id\n"
+//          + "where b.campus = :campus\n"
+//          + "group by a.id",
+      value = "select a.id as storeId, a.code, a.name, a.category, a.address, a.contact, a.url_address as urlAddress, CAST(a.distance AS UNSIGNED) as distance, count(a.id) as scrapCount \n"
+          + "from store a join scrap b on a.id = b.id \n"
+          + "where a.campus = :campus \n"
           + "group by a.id",
       countQuery = "select count(id) as scrapCount from scrap "
   )
