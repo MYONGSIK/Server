@@ -26,7 +26,7 @@ public class Store {
 
   private String code;
   private String name;
-  private String distance;
+  private Long distance;
   private String category;
   private String address;
   private String contact;
@@ -41,7 +41,7 @@ public class Store {
   public Store(
       String code,
       String name,
-      String distance,
+      Long distance,
       String category,
       String address,
       String contact,
