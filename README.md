@@ -2,6 +2,8 @@
 
 
 # 명식이 - 명지대의 식사를 책임지다! 👀
+[![Java CD with Gradle](https://github.com/MYONGSIK/Server/actions/workflows/CD_Prod.yml/badge.svg)](https://github.com/MYONGSIK/Server/actions/workflows/CD_Prod.yml)
+
 ## 📌 Project Explanation 
 * 명지대학교 인문캠퍼스에 MCC관이 생기면서 학식의 인기가 급증하였습니다. 학생들은 메뉴를 알기 위해 다른 커뮤니티를 참조하거나, 월요일 아침에 직접 가서 정보를 알아야만 했습니다. 따라서 명식이는 명지대학교 학생들의 편의를 제공하고자, 인문캠퍼스의 학식 정보를 제공하고, 맛을 평가하는 서비스입니다.
 
@@ -22,7 +24,7 @@
 <br><br>
 ## 📌 Server Architecture
 <h3>ERD</h3>
-<img width="100%" height="45%" src="https://user-images.githubusercontent.com/53048655/221419963-5304637c-c8d7-4e6e-942a-e19ae43c22fa.png">
+<img width="100%" height="45%" src="https://user-images.githubusercontent.com/61505572/228574941-ec8d87c6-9edf-451e-9af1-f3d5e8412946.png">
 
 <h3>CICD Process</h3>
 <img width="100%" height="45%" src="https://user-images.githubusercontent.com/61505572/220684641-9b041a02-447d-47e5-812b-76d457da5689.png">
