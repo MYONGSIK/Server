@@ -57,7 +57,7 @@ public class ScarpController {
       + "[인기순|거리순] 에 대해 정렬을 지원합니다. \n"
       + "인기순 -> api/v2/scraps/store?sort=scrapCount,desc&campus=YONGIN \n"
       + "거리순 -> api/v2/scraps/store?sort=distance,asc&campus=YONGIN \n"
-      + "예시와 같이 요청을 보내주세요.")
+      + "예시와 같이 요청을 보내주세요. ")
   public ApplicationResponse<Page<ScrapCountResponse>> getScrapCount(
       @Param("campus") String campus,
       Pageable pageable
