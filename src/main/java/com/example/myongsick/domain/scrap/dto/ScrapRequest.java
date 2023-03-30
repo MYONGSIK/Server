@@ -19,8 +19,8 @@ public class ScrapRequest {
   private String name;
 
   @NotNull @NotBlank
-  @ApiModelProperty(required = true, dataType = "Long")
-  private Long distance;
+  @ApiModelProperty(required = true, dataType = "String")
+  private String distance;
 
   @NotNull @NotBlank
   @ApiModelProperty(required = true, dataType = "String")
