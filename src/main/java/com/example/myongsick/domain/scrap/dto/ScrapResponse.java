@@ -17,7 +17,7 @@ public class ScrapResponse {
   private Long id;
   private String code;
   private String name;
-  private Long distance;
+  private String distance;
   private String category;
   private String address;
   private String contact;
