@@ -22,7 +22,7 @@ public interface ScrapRepository extends JpaRepository<Scrap, Long> {
 //          + "from scrap a join store b on a.id = b.id\n"
 //          + "where b.campus = :campus\n"
 //          + "group by a.id",
-      value = "select a.id as storeId, a.code, a.name, a.category, a.address, a.contact, a.url_address as urlAddress, CAST(a.distance AS UNSIGNED) as distance, count(a.id) as scrapCount \n"
+      value = "select a.id as storeId, a.code, a.name, a.category, a.address, a.contact, a.url_address as urlAddress, CAST(a.distance AS UNSIGNED) as distance, count(a.id) as scrapCount, a.latitude, a.longitude \n"
           + "from store a join scrap b on a.id = b.id \n"
           + "where a.campus = :campus \n"
           + "group by a.id",

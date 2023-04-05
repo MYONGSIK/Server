@@ -34,6 +34,9 @@ public class Store {
   @Enumerated(EnumType.STRING)
   private CampusType campus;
 
+  private Double latitude;
+  private Double longitude;
+
   @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
   List<Scrap> scrapList = new ArrayList<>();
 
@@ -46,7 +49,9 @@ public class Store {
       String address,
       String contact,
       String urlAddress,
-      CampusType campus) {
+      CampusType campus,
+      Double latitude,
+      Double longitude) {
     this.code = code;
     this.name = name;
     this.category = category;
@@ -55,6 +60,8 @@ public class Store {
     this.contact = contact;
     this.urlAddress = urlAddress;
     this.campus = campus;
+    this.latitude = latitude;
+    this.longitude = longitude;
   }
 
   public void addScrap(Scrap scrap) {
