@@ -52,7 +52,8 @@ public class ScrapServiceImpl implements ScrapService{
     else {
       Store store = Store.builder().code(request.getCode()).name(request.getName())
           .category(request.getCategory()).distance(request.getDistance()).address(request.getAddress())
-          .urlAddress(request.getUrlAddress()).contact(request.getContact()).campus(CampusType.valueOf(request.getCampus())).build();
+          .urlAddress(request.getUrlAddress()).contact(request.getContact()).campus(CampusType.valueOf(request.getCampus()))
+          .build();
     return storeRepository.save(store);
     }
   }

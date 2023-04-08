@@ -10,4 +10,6 @@ public interface CountResponse {
   String getUrlAddress();
   String getDistance();
   int getScrapCount();
+  String getLatitude();
+  String getLongitude();
 }
