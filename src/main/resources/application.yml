@@ -20,6 +20,9 @@ spring:
 #    mongodb:
 #      uri: mongodb://localhost:27017/mongo_test
 
+kakao:
+  rest-key: ENC(TGl1lZSTC9rXy4ZzjfNjsmTycxkEB2a/oZNMXT4aA4/iaatzTEd10iJr0z1mFxNh)
+
 jasypt:
   encryptor:
     bean: jasyptEncyptor
