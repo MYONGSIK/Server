@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.scrap.entity;
 
+import com.google.gson.JsonElement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -66,5 +67,10 @@ public class Store {
 
   public void addScrap(Scrap scrap) {
     this.scrapList.add(scrap);
+  }
+
+  public void updatePoint(String x, String y) {
+    this.latitude = x;
+    this.longitude = y;
   }
 }
