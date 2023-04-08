@@ -21,8 +21,8 @@ public class ScrapCountResponse {
   private String urlAddress;
   private String distance;
   private String contact;
-  private Double latitude;
-  private Double longitude;
+  private String latitude;
+  private String longitude;
   private int scrapCount;
 
   public static ScrapCountResponse toDto(CountResponse countResponse) {

@@ -22,8 +22,8 @@ public class ScrapResponse {
   private String address;
   private String contact;
   private String urlAddress;
-  private Double latitude;
-  private Double longitude;
+  private String latitude;
+  private String longitude;
 
   public static ScrapResponse toDto(Scrap scrap) {
     return ScrapResponse.builder()

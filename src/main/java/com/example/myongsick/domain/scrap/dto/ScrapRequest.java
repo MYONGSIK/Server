@@ -46,6 +46,6 @@ public class ScrapRequest {
   @ApiModelProperty(required = true, dataType = "String")
   private String campus;
 
-  private Double latitude;
-  private Double longitude;
+  private String latitude;
+  private String longitude;
 }
