@@ -8,6 +8,7 @@ import com.example.myongsick.domain.scrap.entity.Scrap;
 import com.example.myongsick.domain.scrap.entity.Store;
 import com.example.myongsick.domain.scrap.exception.AlreadyScrapException;
 import com.example.myongsick.domain.scrap.exception.NotFoundScrapException;
+import com.example.myongsick.domain.scrap.exception.NotFoundStoreException;
 import com.example.myongsick.domain.scrap.repository.ScrapRepository;
 import com.example.myongsick.domain.scrap.repository.StoreRepository;
 import com.example.myongsick.domain.user.entity.User;
@@ -122,5 +123,11 @@ public class ScrapServiceImpl implements ScrapService{
         throw new RuntimeException(e);
       }
     }
+  }
+
+  @Override
+  public ScrapCountResponse getStoreOne(Long storeId) {
+    return storeRepository.findByIdCustom(storeId).map(ScrapCountResponse::toDto).orElseThrow(NotFoundStoreException::new);
+
   }
 }

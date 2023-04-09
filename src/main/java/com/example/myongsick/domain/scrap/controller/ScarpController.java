@@ -70,4 +70,11 @@ public class ScarpController {
   public void updateStore() {
     scrapService.updateStore();
   }
+
+  @GetMapping("/store/{storeId}")
+  public ApplicationResponse<ScrapCountResponse> getStoreOne(
+      @PathVariable Long storeId
+  ) {
+    return ApplicationResponse.ok(scrapService.getStoreOne(storeId));
+  }
 }
