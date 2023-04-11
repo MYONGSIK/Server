@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.scrap.dto;
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ApiModel(description = "찜꽁 리스트 응답 객체 ( + 찜꽁수 포함 )")
 public class ScrapCountResponse {
 
   private Long storeId;
