@@ -3,7 +3,6 @@ package com.example.myongsick.domain.user.dto;
 import com.example.myongsick.domain.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

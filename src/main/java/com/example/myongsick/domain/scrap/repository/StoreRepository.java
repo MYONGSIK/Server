@@ -2,6 +2,7 @@ package com.example.myongsick.domain.scrap.repository;
 
 import com.example.myongsick.domain.scrap.dto.CountResponse;
 import com.example.myongsick.domain.scrap.entity.Store;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,4 +19,6 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
           + "group by a.id"
   )
   Optional<CountResponse> findByIdCustom(Long storeId);
+
+  List<Store> findAllByLatitudeIsNull();
 }
