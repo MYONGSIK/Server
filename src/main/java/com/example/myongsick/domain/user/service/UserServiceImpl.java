@@ -18,8 +18,7 @@ public class UserServiceImpl implements UserService{
   @Override
   @Transactional
   public UserResponse createUser(UserRequest request) {
-    if (userRepository.findByPhoneId(request.getPhoneId()).isPresent())
-      throw new AlreadyUserException();
+    if (userRepository.findByPhoneId(request.getPhoneId()).isPresent()) throw new AlreadyUserException();
     User user = userRepository.save(User.builder().phoneId(request.getPhoneId()).build());
     return UserResponse.toDto(user);
   }
