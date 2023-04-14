@@ -1,8 +1,5 @@
 package com.example.myongsick.domain.review.service;
 
-import com.example.myongsick.domain.meal.entity.Area;
-import com.example.myongsick.domain.meal.exception.excute.NotFoundAreaException;
-import com.example.myongsick.domain.meal.repository.AreaRepository;
 import com.example.myongsick.domain.review.dto.ReviewReqDto;
 import com.example.myongsick.domain.review.dto.ReviewRequest;
 import com.example.myongsick.domain.review.dto.ReviewResponse;
@@ -25,7 +22,6 @@ public class ReviewServiceImpl implements ReviewService{
 
   private final ReviewRepository reviewRepository;
   private final UserRepository userRepository;
-  private final AreaRepository areaRepository;
 
   @Override
   public Page<ReviewResponse> getReviewLists(Pageable pageable) {
@@ -41,8 +37,7 @@ public class ReviewServiceImpl implements ReviewService{
   @Override
   @Transactional
   public ReviewResponse createReview(ReviewRequest request) {
-    User user = userRepository.findByPhoneId(request.getWriterId()).orElseThrow(
-        NotFoundUserException::new);
+    User user = userRepository.findByPhoneId(request.getWriterId()).orElseThrow(NotFoundUserException::new);
     Review review = reviewRepository.save(request.toEntity(user, request.getRegisteredAt(), request.getContent()));
     return ReviewResponse.toDto(review);
   }
@@ -51,8 +46,7 @@ public class ReviewServiceImpl implements ReviewService{
   @Transactional
   public ReviewResponse createReviewWithArea(ReviewReqDto request) {
     User user = userRepository.findByPhoneId(request.getWriterId()).orElseThrow(NotFoundUserException::new);
-    Review review = reviewRepository.save(Review.builder().area(request.getAreaName()).user(user).content(
-        request.getContent()).registeredAt(request.getRegisteredAt()).build());
+    Review review = reviewRepository.save(Review.builder().area(request.getAreaName()).user(user).content(request.getContent()).registeredAt(request.getRegisteredAt()).build());
     return ReviewResponse.toDto(review);
   }
 }
