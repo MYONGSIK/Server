@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,12 +31,13 @@ public class MealResponse {
     private List<String> meals;
 
     public static List<MealResponse> toEntity(List<Meal> meals) {
+
         return meals.stream().map(meal -> MealResponse.builder()
                 .mealId(meal.getId())
                 .toDay(meal.getOfferedAt())
                 .statusType(meal.getStatusType())
                 .mealType(meal.getMealType())
-                .meals(List.of(meal.getMenu1(), meal.getMenu2(), meal.getMenu3(), meal.getMenu4(), meal.getMenu5(),meal.getMenu6()))
+                .meals(Arrays.asList(meal.getMenus().split(",")))
                 .build()).collect(Collectors.toList());
     }
 }

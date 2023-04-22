@@ -31,6 +31,8 @@ public class MealServiceImpl implements MealService {
     @Override
     public List<MealResponse> getWeekFoods(String area) {
         Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(LocalDate.now(), LocalDate.now()).get();
+        Meal meal = week.getMealList().get(0);
+//        List<Meal> mealList = (List<Meal>) meal;
         return MealResponse.toEntity(mealRepository.findByWeekAndAreaOrderByArea(week, areaRepository.findByName(area).get()));
     }
 
@@ -100,7 +102,7 @@ public class MealServiceImpl implements MealService {
                         .area(area)
                         .week(week)
                         .mealType(MealType.values()[j])
-                        .menus(List.of("","등록된 식단내용이(가) 없습니다.","","","",""))
+                        .menus("등록된 식단내용이(가) 없습니다.")
                         .offeredAt(mealNotRegisterReq.getStartedAt().plusDays(i))
                         .statusType(StatusType.OPEN)
                         .build()
@@ -122,19 +124,4 @@ public class MealServiceImpl implements MealService {
         return true;
     }
 
-    @Override
-    public List<List<MealResponse>> getWeekMealAndroid(String area) {
-        Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(LocalDate.now(), LocalDate.now()).get();
-        Area areaEntity = areaRepository.findByName(area).get();
-        List<List<MealResponse>> mealResponses = new ArrayList<>();
-        //하루씩 불러오기
-        for(int i = 0; i < 5; i++){
-            LocalDate localDate = week.getStartDay().plusDays(i);
-            List<Meal> byAreaAndWeek = mealRepository.findByAreaAndAndOfferedAt(areaEntity, localDate);
-            for (int j = 0; j < byAreaAndWeek.size(); j++){
-                mealResponses.add((MealResponse.toEntity(byAreaAndWeek)));
-            }
-        }
-        return mealResponses;
-    }
 }

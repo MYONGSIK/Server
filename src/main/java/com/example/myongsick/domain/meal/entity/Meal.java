@@ -34,6 +34,7 @@ public class Meal {
   private String menu4;
   private String menu5;
   private String menu6;
+  private String menus;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
   private LocalDate offeredAt;
@@ -50,18 +51,13 @@ public class Meal {
 
   @Builder
   public Meal(MealType mealType,
-              List<String> menus,
+              String menus,
               LocalDate offeredAt,
               Week week,
               Area area,
               StatusType statusType) {
     this.mealType = mealType;
-    this.menu1 = menus.get(0);
-    this.menu2 = menus.get(1);
-    this.menu3 = menus.get(2);
-    this.menu4 = menus.get(3);
-    this.menu5 = menus.get(4);
-    this.menu6 = menus.get(5);
+    this.menus = menus;
     this.statusType = statusType;
     this.offeredAt = offeredAt;
     this.love = 0;
