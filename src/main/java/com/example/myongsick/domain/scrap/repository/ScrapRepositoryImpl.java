@@ -44,6 +44,14 @@ public class ScrapRepositoryImpl implements ScrapRepositoryCustom{
     return new PageImpl<>(result, pageable, count);
   }
 
+  @Override
+  public ScrapCountResponse findByIdCustom(Long storeId) {
+    return jpaQueryFactory.select(new QScrapCountResponse(store.id.as("storeId"), store.code, store.name, store.category, store.address, store.contact, store.urlAddress, store.distance, store.latitude, store.longitude, store.scrapList.size().as("scrapCount")))
+        .from(store)
+        .where(store.id.eq(storeId))
+        .fetchOne();
+  }
+
   private List<OrderSpecifier> getOrderSpecifier(Sort sort) {
     List<OrderSpecifier> orderSpecifiers = new ArrayList<>();
     sort.stream()
