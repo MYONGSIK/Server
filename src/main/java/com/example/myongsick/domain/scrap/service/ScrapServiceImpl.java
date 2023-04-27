@@ -116,6 +116,11 @@ public class ScrapServiceImpl implements ScrapService{
 
   @Override
   public ScrapCountResponse getStoreOne(Long storeId) {
-    return storeRepository.findByIdCustom(storeId).map(ScrapCountResponse::toDto).orElseThrow(NotFoundStoreException::new);
+//    return storeRepository.findByIdCustom(storeId).map(ScrapCountResponse::toDto).orElseThrow(NotFoundStoreException::new);
+    ScrapCountResponse scrapCountResponse = scrapRepositoryCustom.findByIdCustom(storeId);
+    if( scrapCountResponse == null ) {
+      throw new NotFoundStoreException();
+    }
+    return scrapCountResponse;
   }
 }
