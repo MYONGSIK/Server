@@ -10,6 +10,7 @@ import com.example.myongsick.domain.scrap.exception.AlreadyScrapException;
 import com.example.myongsick.domain.scrap.exception.NotFoundScrapException;
 import com.example.myongsick.domain.scrap.exception.NotFoundStoreException;
 import com.example.myongsick.domain.scrap.repository.ScrapRepository;
+import com.example.myongsick.domain.scrap.repository.ScrapRepositoryCustom;
 import com.example.myongsick.domain.scrap.repository.StoreRepository;
 import com.example.myongsick.domain.user.entity.User;
 import com.example.myongsick.domain.user.exception.NotFoundUserException;
@@ -39,6 +40,7 @@ public class ScrapServiceImpl implements ScrapService{
   private final UserRepository userRepository;
   private final ScrapRepository scrapRepository;
   private final StoreRepository storeRepository;
+  private final ScrapRepositoryCustom scrapRepositoryCustom;
 
   @Value("${kakao.rest-key}")
   private String kakaoRestKey;
@@ -80,7 +82,8 @@ public class ScrapServiceImpl implements ScrapService{
 
   @Override
   public Page<ScrapCountResponse> getScrapCount(String campus, Pageable pageable) {
-    return scrapRepository.findAllCustom(campus, pageable).map(ScrapCountResponse::toDto);
+//    return scrapRepositoryCustom.findAllCustom(campus, pageable).map(ScrapCountResponse::toDto);
+    return scrapRepositoryCustom.findAllByCampusWithPaging(campus, pageable);
   }
 
   @Transactional
