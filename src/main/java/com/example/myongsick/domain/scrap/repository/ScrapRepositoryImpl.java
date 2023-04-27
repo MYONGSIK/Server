@@ -13,6 +13,7 @@ import com.querydsl.core.types.dsl.PathBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -45,11 +46,11 @@ public class ScrapRepositoryImpl implements ScrapRepositoryCustom{
   }
 
   @Override
-  public ScrapCountResponse findByIdCustom(Long storeId) {
-    return jpaQueryFactory.select(new QScrapCountResponse(store.id.as("storeId"), store.code, store.name, store.category, store.address, store.contact, store.urlAddress, store.distance, store.latitude, store.longitude, store.scrapList.size().as("scrapCount")))
+  public Optional<ScrapCountResponse> findByIdCustom(Long storeId) {
+    return Optional.ofNullable(jpaQueryFactory.select(new QScrapCountResponse(store.id.as("storeId"), store.code, store.name, store.category, store.address, store.contact, store.urlAddress, store.distance, store.latitude, store.longitude, store.scrapList.size().as("scrapCount")))
         .from(store)
         .where(store.id.eq(storeId))
-        .fetchOne();
+        .fetchOne());
   }
 
   private List<OrderSpecifier> getOrderSpecifier(Sort sort) {
