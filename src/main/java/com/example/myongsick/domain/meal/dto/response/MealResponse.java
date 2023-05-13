@@ -37,7 +37,8 @@ public class MealResponse {
                 .toDay(meal.getOfferedAt())
                 .statusType(meal.getStatusType())
                 .mealType(meal.getMealType())
-                .meals(Arrays.asList(meal.getMenus().split(",")))
+//                .meals(Arrays.asList(meal.getMenus().split(",")))
+                .meals(List.of(meal.getMenu1(), meal.getMenu2(), meal.getMenu3(), meal.getMenu4(), meal.getMenu5(),meal.getMenu6()))
                 .build()).collect(Collectors.toList());
     }
 }

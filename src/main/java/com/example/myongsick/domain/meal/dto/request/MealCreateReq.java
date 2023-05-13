@@ -32,7 +32,10 @@ public class MealCreateReq {
     @NotNull(message = "식당 지역 값은 필수입니다.")
     private String area;
 
-    @ApiModelProperty(value = "메뉴1,메뉴2,메뉴3,메뉴4,메뉴5", example = "계란볶음밥,된장국,김치,단무지", required = true, dataType = "String")
+//    @ApiModelProperty(value = "메뉴1,메뉴2,메뉴3,메뉴4,메뉴5", example = "계란볶음밥,된장국,김치,단무지", required = true, dataType = "String")
+//    @NotNull(message = "메뉴 값은 필수입니다.")
+//    private String meals;
+
     @NotNull(message = "메뉴 값은 필수입니다.")
-    private String meals;
+    private List<String> meals;
 }

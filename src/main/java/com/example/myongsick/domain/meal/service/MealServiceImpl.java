@@ -18,6 +18,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +32,7 @@ public class MealServiceImpl implements MealService {
     @Override
     public List<MealResponse> getWeekFoods(String area) {
         Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(LocalDate.now(), LocalDate.now()).get();
-        Meal meal = week.getMealList().get(0);
+//        Meal meal = week.getMealList().get(0);
 //        List<Meal> mealList = (List<Meal>) meal;
         return MealResponse.toEntity(mealRepository.findByWeekAndAreaOrderByArea(week, areaRepository.findByName(area).get()));
     }
@@ -51,8 +52,7 @@ public class MealServiceImpl implements MealService {
         mealRepository.save(Meal.builder()
                 .mealType(MealType.valueOf(mealCreateReq.getType()))
                 .area(areaRepository.findByName(mealCreateReq.getArea()).orElseThrow(NotFoundAreaException::new))
-                .week(weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealCreateReq.getOfferedAt(), mealCreateReq.getOfferedAt()).orElseThrow(
-                    NotFoundWeekException::new))
+                .week(weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealCreateReq.getOfferedAt(), mealCreateReq.getOfferedAt()).orElseThrow(NotFoundWeekException::new))
                 .offeredAt(mealCreateReq.getOfferedAt())
                 .statusType(StatusType.valueOf(mealCreateReq.getStatus()))
                 .menus(mealCreateReq.getMeals())
@@ -84,7 +84,8 @@ public class MealServiceImpl implements MealService {
         Area area = areaRepository.findByName(mealNotRegisterReq.getArea()).orElseThrow(NotFoundAreaException::new);
         List<Meal> meals = new ArrayList<>();
         for(int i = 0; i < 5; i++){
-            Week week = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealNotRegisterReq.getStartedAt().plusDays(i), mealNotRegisterReq.getStartedAt().plusDays(i)).orElseThrow(NotFoundAreaException::new);
+            Optional<Week> byStartDayLessThanEqualAndEndDayGreaterThanEqual = weekRepository.findByStartDayLessThanEqualAndEndDayGreaterThanEqual(mealNotRegisterReq.getStartedAt().plusDays(i), mealNotRegisterReq.getStartedAt().plusDays(i));
+            Week week = byStartDayLessThanEqualAndEndDayGreaterThanEqual.orElseThrow(NotFoundAreaException::new);
             for(int j = 0; j < MealType.values().length; j++){
                 if (!area.getName().equals("MCC식당") && !area.getName().equals("명진당식당") && MealType.values()[j].equals(MealType.LUNCH_B)){
                     continue;
@@ -102,7 +103,8 @@ public class MealServiceImpl implements MealService {
                         .area(area)
                         .week(week)
                         .mealType(MealType.values()[j])
-                        .menus("등록된 식단내용이(가) 없습니다.")
+//                        .menus("등록된 식단내용이(가) 없습니다.")
+                        .menus(List.of("","등록된 식단내용이(가) 없습니다.","","","",""))
                         .offeredAt(mealNotRegisterReq.getStartedAt().plusDays(i))
                         .statusType(StatusType.OPEN)
                         .build()
