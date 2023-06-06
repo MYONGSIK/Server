@@ -30,7 +30,7 @@
 <img width="100%" height="45%" src="https://user-images.githubusercontent.com/61505572/220684641-9b041a02-447d-47e5-812b-76d457da5689.png">
   
 <h3>Infra Structure</h3>
-  <img width="100%" height="45%" src="https://user-images.githubusercontent.com/61505572/220687135-a6f83cba-35cd-4895-a72e-ef29f5f4a3a7.png">
+  <img width="100%" height="45%" src="https://user-images.githubusercontent.com/53048655/234185319-d80b3ba2-a144-4df2-91e1-4f68eefdd026.png">
 
 
 <br><br>
