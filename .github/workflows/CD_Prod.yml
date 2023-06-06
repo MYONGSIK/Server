@@ -78,7 +78,7 @@ jobs:
             docker stop myongsik_prod1
             docker rm myongsik_prod1
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/myongsik
-            sudo docker run -d --name myongsik_prod1 -v /etc/localtime:/etc/localtime:ro -e JAVA_OPTS=-Djasypt.encryptor.password=${{ secrets.YML_PASSWORD }} -e TZ=Asia/Seoul -e ENVIRONMENT_VALUE=-Dspring.profiles.active=prod -p 8085:8080 ${{ secrets.DOCKER_USERNAME }}/myongsik:latest
+            sudo docker run -d --name myongsik_prod1 -v /var/log/app:/var/log/app -v /etc/localtime:/etc/localtime:ro -e JAVA_OPTS=-Djasypt.encryptor.password=${{ secrets.YML_PASSWORD }} -e TZ=Asia/Seoul -e ENVIRONMENT_VALUE=-Dspring.profiles.active=prod -p 8085:8080 ${{ secrets.DOCKER_USERNAME }}/myongsik:latest
             docker rmi -f $(docker images -f "dangling=true" -q)
 
       # 10) Deploy (PROD2)
