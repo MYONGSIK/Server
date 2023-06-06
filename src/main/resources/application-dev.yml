@@ -6,3 +6,9 @@ spring:
     username: ENC(W14O0+528BmR05t/tOqkJA==)
     password: ENC(8K7aplBAKgyNF7OuP11M6cXlCT1zLzm4)
     driver-class-name: com.mysql.cj.jdbc.Driver
+log:
+  config:
+    path: ./logs
+    filename: app-dev
+    maxHistory: 7 # 7일
+    totalSizeCap: 10MB # 로그 파일 사이즈
