@@ -57,7 +57,7 @@
     </springProfile>
     <!--  prod 환경  -->
     <springProfile name="prod">
-        <root level="DEBUG">
+        <root level="info">
             <!-- 참조할 appender - STDOUT -->
             <appender-ref ref="STDOUT" />
         </root>
