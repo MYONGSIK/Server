@@ -55,5 +55,16 @@
             <appender-ref ref="FILE" />
         </logger>
     </springProfile>
+    <!--  prod 환경  -->
+    <springProfile name="prod">
+        <root level="DEBUG">
+            <!-- 참조할 appender - STDOUT -->
+            <appender-ref ref="STDOUT" />
+        </root>
+        <logger name="org.springframework.web" level="debug">
+            <!-- 참조할 appender - FILE -->
+            <appender-ref ref="FILE" />
+        </logger>
+    </springProfile>
 
 </configuration>
