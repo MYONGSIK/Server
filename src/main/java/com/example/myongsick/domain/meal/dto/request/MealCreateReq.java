@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
@@ -22,6 +23,7 @@ public class MealCreateReq {
 
     @ApiModelProperty(value = "중식A/중식B/석식", example = "LUNCH_A/LUNCH_B/DINNER", required = true, dataType = "String")
     @NotNull(message = "메뉴의 분류 값은 필수입니다.")
+    @NotBlank(message = "메뉴의 분류 값은 필수입니다.")
     private String type; //A형 B형
 
     @ApiModelProperty(value = "운영/미운영", example = "OPEN/CLOSE", required = true, dataType = "String")
