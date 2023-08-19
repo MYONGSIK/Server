@@ -15,4 +15,6 @@ public interface DinnerRepository extends JpaRepository<Dinner,Long> {
     List<Dinner> findByWeek(Week week);
 
 
+
+
 }
