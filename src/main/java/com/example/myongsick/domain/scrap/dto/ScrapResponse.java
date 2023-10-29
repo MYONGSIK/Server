@@ -1,6 +1,7 @@
 package com.example.myongsick.domain.scrap.dto;
 
 import com.example.myongsick.domain.scrap.entity.Scrap;
+import com.querydsl.core.annotations.QueryProjection;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,5 +39,28 @@ public class ScrapResponse {
         .latitude(scrap.getStore().getLatitude())
         .longitude(scrap.getStore().getLongitude())
         .build();
+  }
+
+  @QueryProjection
+  public ScrapResponse(
+      Long id,
+      String code,
+      String name,
+      String category,
+      String address,
+      String contact,
+      String urlAddress,
+      String latitude,
+      String longitude
+  ) {
+    this.id = id;
+    this.code = code;
+    this.name = name;
+    this.category = category;
+    this.address = address;
+    this.contact = contact;
+    this.urlAddress = urlAddress;
+    this.latitude = latitude;
+    this.longitude = longitude;
   }
 }

@@ -1,5 +1,6 @@
 package com.example.myongsick.domain.scrap.entity;
 
+import com.example.myongsick.domain.mark.entity.StoreMark;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -38,6 +39,9 @@ public class Store {
 
   @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
   List<Scrap> scrapList = new ArrayList<>();
+
+  @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+  List<StoreMark> storeMarkList = new ArrayList<>();
 
   @Builder
   public Store(
