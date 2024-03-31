@@ -2,7 +2,8 @@ spring:
   application:
     name: myongsikMain
   datasource:
-    url: ENC(jV5Al684UF9ZuGwX0AJ4KaAl2djrcg5+mZe+QMgY1i2Afu6rtj0Cmrj52fkzjiQAP3b31dyhrLvggD+Mold//xi+7WPdEEu7AjoO1XGbMNl5uf5hKMhUh5pmZDpCkubJgj/VFoVUe4s=)
+    url: ENC(E5yVgfVXZDHp9+HrNVAz3Ge0986jB7898HX59bMCrnHFNa1NCuqNXjepK0mZB424+7cjBEDxD94taZyh6wnUYoBUtn21kZH3roaUpktLJqL/SRcCHgU7ragXDrioRzkNBoa12KlkH/g=)
+#    url: ENC(jV5Al684UF9ZuGwX0AJ4KaAl2djrcg5+mZe+QMgY1i2Afu6rtj0Cmrj52fkzjiQAP3b31dyhrLvggD+Mold//xi+7WPdEEu7AjoO1XGbMNl5uf5hKMhUh5pmZDpCkubJgj/VFoVUe4s=)
     username: ENC(W14O0+528BmR05t/tOqkJA==)
     password: ENC(8K7aplBAKgyNF7OuP11M6cXlCT1zLzm4)
     driver-class-name: com.mysql.cj.jdbc.Driver
