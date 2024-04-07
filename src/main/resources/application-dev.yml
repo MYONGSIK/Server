@@ -2,7 +2,7 @@ spring:
   application:
     name: myongsikMain
   datasource:
-    url: ENC(FvjZ3ej9bur/Zba252Ftd0E/2oZboTAxXq9qPPc+drqjwMVaRA3H7e/mrZD7YkBxnuj9P//D0x+vzT2yzsMmtd1iV0tI3G3sHOqrQyONaddTNbZsBYGNR+UDPGVw0/Yz+6/im/z1iWxrAd9MgUGczC4CIVmCamPRK99/R+ViUyaWLZvmFqGPLA==)
+    url: ENC(WJ3ygt60c47ky5NU/kSy82Mp+/lnOFKDvrGPVGtKJCZAQRXTTBk17fXy9As1Xys6LXgjA4dKePpD3oA0+oIhDNVwSB30PrHOugaFd9f+FA/FZuJ16fKtOSUup1q1HmAgVLSXocWyKb5mmb1Y2eyOjfZAZMc82Q/2aifOPp47OfbCsWllJiTYkvNCV6R3AmDm)
 #    url: ENC(jV5Al684UF9ZuGwX0AJ4KaAl2djrcg5+mZe+QMgY1i2Afu6rtj0Cmrj52fkzjiQAP3b31dyhrLvggD+Mold//xi+7WPdEEu7AjoO1XGbMNl5uf5hKMhUh5pmZDpCkubJgj/VFoVUe4s=)
     username: ENC(W14O0+528BmR05t/tOqkJA==)
     password: ENC(8K7aplBAKgyNF7OuP11M6cXlCT1zLzm4)
